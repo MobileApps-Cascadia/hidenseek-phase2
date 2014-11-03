@@ -1,0 +1,32 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.cascadia.hidenseek.Active"
+    tools:ignore="MergeRootFrame" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <fragment
+            android:id="@+id/mapview"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:clickable="true" />
+
+        <ImageButton
+            android:id="@+id/btnLeaveGame"
+            android:layout_width="103dp"
+            android:layout_height="100dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:background="@android:color/transparent"
+            android:scaleType="fitXY"
+            android:src="@drawable/btn_leave_set" />
+
+    </RelativeLayout>
+
+</FrameLayout>

@@ -1,0 +1,161 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.cascadia.hidenseek.Settings"
+    tools:ignore="MergeRootFrame" >
+    
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        android:src="@drawable/bg" />
+    
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+    
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_weight="0.08" >
+
+                <TextView
+                    android:id="@+id/prefPlayerName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="17dp"
+                    android:layout_marginTop="14dp"
+                    android:text="@string/pref_player_name"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/headings" />
+                
+                <ImageView
+                    android:id="@+id/prefPlayerNameHelp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignTop="@+id/prefPlayerName"
+                    android:layout_marginRight="20dp"
+                    android:src="@drawable/ic_help" />
+
+                <EditText
+                    android:id="@+id/prefPlayerNameInput"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/prefPlayerName"
+                    android:layout_alignRight="@+id/prefPlayerNameHelp"
+                    android:layout_below="@+id/prefPlayerName"
+                    android:layout_marginTop="5dp"
+                    android:ems="10" /> 
+            </RelativeLayout>
+            	
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.08" >
+
+                <TextView
+                    android:id="@+id/prefCountTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="17dp"
+                    android:text="@string/pref_count_time"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/headings" />
+                
+                <ImageView
+                    android:id="@+id/prefCountTimeHelp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignTop="@+id/prefCountTime"
+                    android:layout_marginRight="20dp"
+                    android:src="@drawable/ic_help" />
+
+                <EditText
+                    android:id="@+id/prefCountTimeInput"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/prefCountTime"
+                    android:layout_alignRight="@+id/prefCountTimeHelp"
+                    android:layout_below="@+id/prefCountTime"
+                    android:layout_marginTop="5dp"
+                    android:ems="10" /> 
+            </RelativeLayout>
+            
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.08" >
+
+                <TextView
+                    android:id="@+id/prefSeekTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="17dp"
+                    android:text="@string/pref_seek_time"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/headings" />
+                
+                <ImageView
+                    android:id="@+id/prefSeekTimeHelp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignTop="@+id/prefSeekTime"
+                    android:layout_marginRight="20dp"
+                    android:src="@drawable/ic_help" />
+
+                <EditText
+                    android:id="@+id/prefSeekTimeInput"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/prefSeekTime"
+                    android:layout_alignRight="@+id/prefSeekTimeHelp"
+                    android:layout_below="@+id/prefSeekTime"
+                    android:layout_marginTop="5dp"
+                    android:ems="10" /> 
+            </RelativeLayout>
+            
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.08" >
+                <Button 
+                    android:id="@+id/submit" 
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="17dp"                 
+                    android:text="Submit" /> 
+                    
+                <Button 
+                    android:id="@+id/exit" 
+                    android:layout_width="wrap_content" 
+                    android:layout_height="wrap_content" 
+                    android:layout_marginLeft="75px" 
+                    android:layout_toRightOf="@+id/submit" 
+                    android:text="Exit" />
+               
+            </RelativeLayout>
+            
+    	</LinearLayout>
+    	</ScrollView> 
+    </FrameLayout>

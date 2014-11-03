@@ -1,0 +1,174 @@
+<FrameLayout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.cascadia.hidenseek.HostConfig"
+    tools:ignore="MergeRootFrame" >
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        android:src="@drawable/bg" />
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:id="@+id/configTimeContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_weight="0.08" >
+
+                <TextView
+                    android:id="@+id/configCountTimeTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="17dp"
+                    android:layout_marginTop="14dp"
+                    android:text="@string/config_count_time"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/headings" />
+
+                <EditText
+                    android:id="@+id/configCountTimeInput"
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/configCountTimeTitle"
+                    android:layout_below="@+id/configCountTimeTitle"
+                    android:layout_marginTop="5dp"
+                    android:ems="10"
+                    android:inputType="time" />
+
+                <ImageView
+                    android:id="@+id/configCountTimeHelp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignRight="@+id/configCountTimeInput"
+                    android:layout_alignTop="@+id/configCountTimeTitle"
+                    android:src="@drawable/ic_help" />
+
+                <EditText
+                    android:id="@+id/configSeekTimeInput"
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/configCountTimeInput"
+                    android:layout_alignBottom="@+id/configCountTimeInput"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20dp"
+                    android:ems="10"
+                    android:inputType="time" />
+
+                <ImageView
+                    android:id="@+id/configSeekTimeHelp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignRight="@+id/configSeekTimeInput"
+                    android:layout_alignTop="@+id/configCountTimeHelp"
+                    android:src="@drawable/ic_help" />
+
+                <TextView
+                    android:id="@+id/configSeekTimeTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/configCountTimeInput"
+                    android:layout_alignLeft="@+id/configSeekTimeInput"
+                    android:text="@string/config_seek_time"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/headings" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.08" >
+
+                <TextView
+                    android:id="@+id/configPlayersTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="17dp"
+                    android:layout_marginTop="14dp"
+                    android:text="@string/config_players"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/headings" />
+
+                <ImageView
+                    android:id="@+id/configPlayersHelp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignTop="@+id/configPlayersTitle"
+                    android:layout_marginRight="20dp"
+                    android:src="@drawable/ic_help" />
+
+                <ListView
+                    android:id="@+id/configPlayerList"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:layout_alignLeft="@+id/configPlayersTitle"
+                    android:layout_alignRight="@+id/configPlayersHelp"
+                    android:layout_below="@+id/configPlayersTitle" >
+                </ListView>
+                
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.08" >
+
+                
+                <RelativeLayout
+                    android:id="@+id/centeredThing"
+                    android:layout_width="6dp"
+                    android:layout_height="6dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true" >
+
+                </RelativeLayout>
+
+                <ImageButton
+                    android:id="@+id/btnConfigBegin"
+                    android:layout_width="133dp"
+                    android:layout_height="130dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@id/centeredThing"
+                    android:layout_weight="0.08"
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/btn_begin_set" />
+
+                <ImageButton
+                    android:id="@+id/btnConfigCancel"
+                    android:layout_width="133dp"
+                    android:layout_height="130dp"
+                    android:layout_alignTop="@+id/btnConfigBegin"
+                    android:layout_toRightOf="@+id/btnConfigBegin"
+                    android:layout_weight="0.08"
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/btn_cancel_set" />
+
+
+            </RelativeLayout>
+        </LinearLayout>
+
+    </ScrollView>
+
+</FrameLayout>

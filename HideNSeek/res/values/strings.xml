@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">HideNSeek</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_host_login">Create Match</string>
+    <string name="login_match_name">Match Name</string>
+
+    <string-array name="login_match_types">
+        <item>Hide and Seek</item>
+        <item>Sandbox</item>
+    </string-array>
+
+    <string name="login_match_type_title">Match Type</string>
+    <string name="title_activity_join_login">Join Match</string>
+    <string name="Password">login_password_text_title</string>
+    <string name="login_password_title">Match Password</string>
+    <string name="login_no_matches">No matches found</string>
+    <string name="title_activity_host_config">Config Match</string>
+    <string name="config_seek_time">Search Time</string>
+    <string name="config_counting_time"></string>
+    <string name="config_count_time">Count Time</string>
+    <string name="config_players">Players</string>
+    <string name="title_activity_active">Active Game</string>
+    <string name="player_name">Player Name</string>
+    <string name="pref_player_name">Player Name</string>
+    <string name="pref_count_time">Default Count Time</string>
+    <string name="pref_seek_time">Default Seek Time</string>
+    <string name="title_settings">Settings</string>
+    <string name="title_activity_select_match">Select Match</string>
+
+</resources>
