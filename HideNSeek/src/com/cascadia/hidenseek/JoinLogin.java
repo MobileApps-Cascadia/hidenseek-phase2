@@ -58,7 +58,7 @@ public class JoinLogin extends Activity {
 			//Error!
 			return;
 		}
-		String intString = SelectMatch.selectedMatch.replaceFirst(" - .*", "");
+		String intString = SelectMatch.selectedMatch.trim().replaceFirst(" - .*", "");
 		int matchId = Integer.parseInt(intString);
 		
 		GetMatchRequest gmRequest = new GetMatchRequest() {

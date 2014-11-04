@@ -82,7 +82,7 @@
             android:value="AIzaSyC5YvkPtxmbXyKbFibFj7kCqZGvHLj6dlU" />
         <meta-data
             android:name="com.google.android.gms.version"
-            android:value="4452000" />
+            android:value="@integer/google_play_services_version" />
 
         <activity
             android:name="com.cascadia.hidenseek.SelectMatch"
