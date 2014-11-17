@@ -89,7 +89,7 @@ public class HostConfig extends Activity {
 					}
 					@Override
 					protected void onComplete(Match m) {
-		    			Intent intent = new Intent(HostConfig.this, Active.class);
+		    			Intent intent = new Intent(HostConfig.this, SplashActivity.class);
 		    			startActivity(intent);
 					}
 				};
@@ -134,7 +134,7 @@ public class HostConfig extends Activity {
 						protected void onComplete(Match match) {
 							if(match.GetStatus() == Status.Active) {
 								isActive = false;
-				    			Intent intent = new Intent(HostConfig.this, Active.class);
+				    			Intent intent = new Intent(HostConfig.this, SplashActivity.class);
 				    			startActivity(intent);
 							}
 						}

@@ -76,6 +76,10 @@
             android:name="com.cascadia.hidenseek.Settings"
             android:label="@string/title_settings" >
         </activity>
+        <activity
+            android:name="com.cascadia.hidenseek.SplashActivity"
+            android:label="@string/title_splash" >
+        </activity>
          <meta-data 
 		android:name="com.google.android.gms.version" 
 		android:value="@integer/google_play_services_version" />
