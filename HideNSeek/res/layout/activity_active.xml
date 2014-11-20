@@ -26,6 +26,16 @@
             android:background="@android:color/transparent"
             android:scaleType="fitXY"
             android:src="@drawable/btn_leave_set" />
+        
+        <ImageButton
+            android:id="@+id/btnViewPlayers"
+            android:layout_width="93dp"
+            android:layout_height="90dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:background="@android:color/transparent"
+            android:scaleType="fitXY"
+            android:src="@drawable/btn_view_set" />
 
     </RelativeLayout>
 

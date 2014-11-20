@@ -1,8 +1,13 @@
 package com.cascadia.hidenseek;
 
+import java.util.List;
+
+import Helper.NoteItem;
+import Helper.NotesDataSource;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -11,11 +16,34 @@ import android.widget.ImageButton;
 
 public class Home extends Activity {
 
+	
+	private NotesDataSource datasource;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_home);
+		
+		//pass in the current instance using this
+		datasource = new NotesDataSource(this);
+		List<NoteItem> notes = datasource.findAll();
+		NoteItem note = notes.get(0);
+		//set text of object and pass into the update and then saves to persistent storage
+		note.setText("Updated");
+		
+		
+		
+		//adding the note object and saving it persistently
+		datasource.update(note);
+		
+		
+		notes = datasource.findAll();
+		note = notes.get(0);
+		
+		
+		//create log class for debugging based on the note from the Notes class
+		Log.i("NOTES", note.getKey() + ": " + note.getKey());
+	
 		
 		//User clicked Host Match button
         ImageButton btnHost = (ImageButton) findViewById(R.id.btnHostHome);

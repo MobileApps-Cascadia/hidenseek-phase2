@@ -1,5 +1,7 @@
 package com.cascadia.hidenseek;
 
+import java.util.List;
+
 import com.cascadia.hidenseek.network.DeletePlayingRequest;
 import com.cascadia.hidenseek.network.GetPlayerListRequest;
 import com.cascadia.hidenseek.network.PutGpsRequest;
@@ -11,6 +13,8 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import Helper.NoteItem;
+import Helper.NotesDataSource;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.annotation.TargetApi;
@@ -21,6 +25,7 @@ import android.content.Intent;
 import android.location.Location;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -29,6 +34,9 @@ import android.widget.Toast;
 import android.os.Build;
 
 public class Active extends FragmentActivity {
+	
+	
+	
 	GoogleMap googleMap;
 	Match match;
 	Player player;
@@ -43,6 +51,9 @@ public class Active extends FragmentActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_active);
+		
+		
+		
 		
 		match = LoginManager.GetMatch();
 		player = LoginManager.playerMe;
@@ -74,6 +85,15 @@ public class Active extends FragmentActivity {
 				startActivity(intent);
 	        }
 	    });
+	  //User clicked Leave Match button
+	    ImageButton btnView = (ImageButton) findViewById(R.id.btnViewPlayers);
+	    btnLeave.setOnClickListener(new View.OnClickListener() {
+	        public void onClick(View v) {
+				Intent intent = new Intent(Active.this, Home.class);
+				startActivity(intent);
+	        }
+	    });
+	    
 	    
 	    Runnable callback = new Runnable() {
 	    	
