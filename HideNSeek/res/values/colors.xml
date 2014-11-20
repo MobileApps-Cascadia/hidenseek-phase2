@@ -1,4 +1,5 @@
     <resources>
         <color name="headings">#FEB41C</color>
         <color name="text">#EFFF</color>
+        <color name="Players">#FFF</color>
     </resources>

@@ -3,6 +3,7 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.cascadia.hidenseek.Home"
     tools:ignore="MergeRootFrame" >
 
@@ -24,5 +25,24 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="16dp"
             android:src="@drawable/logo_home" />
+
+		<TextView
+		    android:id="@+id/mTextField"
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:layout_gravity="center"
+		    android:gravity="center"
+		    android:text="@string/app_name"
+		    android:textAppearance="?android:attr/textAppearanceLarge"
+		    android:textColor="@color/Players"
+		    android:textSize="@dimen/Counter"
+		    android:textStyle="bold" />
+
+		<ProgressBar
+		    android:id="@+id/progressBar1"
+		    style="?android:attr/progressBarStyleLarge"
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content" />
+
 	</LinearLayout>
 </FrameLayout>
