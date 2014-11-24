@@ -11,6 +11,7 @@ import android.widget.TextView;
 public class SplashActivity extends Activity {
 	private TextView count_down_text = null;
 	private MyCountDownTimer countdowntimer = null;
+	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -18,7 +19,7 @@ public class SplashActivity extends Activity {
 		final View view = View.inflate(this, R.layout.splash_screen, null);
 		setContentView(view);
 		count_down_text = (TextView) findViewById(R.id.mTextField);
-		countdowntimer = new MyCountDownTimer(60000, 1000);
+		countdowntimer = new MyCountDownTimer(1000, 1000);
 		countdowntimer.start();
 	}
 

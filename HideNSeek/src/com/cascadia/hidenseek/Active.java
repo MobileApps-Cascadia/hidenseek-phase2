@@ -14,6 +14,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.annotation.TargetApi;
+import android.app.ActionBar;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.DialogInterface;
@@ -28,7 +29,8 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 import android.os.Build;
 
-public class Active extends FragmentActivity {
+
+public class Active extends FragmentActivity   {
 	GoogleMap googleMap;
 	Match match;
 	Player player;
@@ -39,10 +41,13 @@ public class Active extends FragmentActivity {
     //Millisecond delay between callbacks
     private final int callbackDelay = 500;
     
+    
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_active);
+		
+		
 		
 		match = LoginManager.GetMatch();
 		player = LoginManager.playerMe;
@@ -53,6 +58,7 @@ public class Active extends FragmentActivity {
 			d.show();
 			finish();
 		}
+		
 		
 		//Show user's position on map
 		googleMap = ((SupportMapFragment)getSupportFragmentManager().findFragmentById(R.id.mapview)).getMap();
@@ -122,6 +128,7 @@ public class Active extends FragmentActivity {
 	public void onPause(){
 		super.onPause();
 	}
+	
 	
 	@Override
 	public void onResume(){
@@ -196,7 +203,7 @@ public class Active extends FragmentActivity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.active, menu);
+		getMenuInflater().inflate(R.menu.players, menu);
 		return true;
 	}
 
@@ -206,7 +213,9 @@ public class Active extends FragmentActivity {
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
-		if (id == R.id.action_settings) {
+		if (id == R.id.players_list) {
+			Intent intent = new Intent(Active.this, CurrentPlayers.class);
+			startActivity(intent);
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
