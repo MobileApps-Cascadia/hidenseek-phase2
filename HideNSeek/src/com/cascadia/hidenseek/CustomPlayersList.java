@@ -1,14 +1,11 @@
 package com.cascadia.hidenseek;
 
 import android.app.Activity;
-import android.content.res.Resources;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 
 public class CustomPlayersList extends ArrayAdapter<String>{

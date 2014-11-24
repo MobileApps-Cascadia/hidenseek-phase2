@@ -2,7 +2,7 @@ package com.cascadia.hidenseek;
 
 import com.cascadia.hidenseek.Match.MatchType;
 
-import android.content.Intent;
+
 
 public class LoginManager {
 

@@ -2,13 +2,9 @@ package com.cascadia.hidenseek;
 
 import com.cascadia.hidenseek.Match.MatchType;
 import com.cascadia.hidenseek.Match.Status;
-import com.cascadia.hidenseek.network.DeletePlayingRequest;
 import com.cascadia.hidenseek.network.GetMatchRequest;
 import com.cascadia.hidenseek.network.GetPlayerListRequest;
-import com.cascadia.hidenseek.network.PutGpsRequest;
 import com.cascadia.hidenseek.network.PutStartRequest;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -20,11 +16,10 @@ import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
-import android.widget.TextView;
+
 
 public class HostConfig extends Activity {
 
@@ -37,6 +32,7 @@ public class HostConfig extends Activity {
     //Millisecond delay between callbacks
     private final int callbackDelay = 500;
 		
+	@SuppressWarnings("deprecation")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

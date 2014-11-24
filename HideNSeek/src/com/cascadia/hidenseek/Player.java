@@ -13,7 +13,7 @@ import org.json.JSONObject;
 
 import android.location.Location;
 
-import com.cascadia.hidenseek.Match.Status;
+
 import com.cascadia.hidenseek.network.LocationParser;
 
 public class Player {
