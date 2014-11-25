@@ -48,6 +48,7 @@
                     android:layout_alignParentRight="true"
                     android:layout_alignTop="@+id/loginMatchNameTitle"
                     android:layout_marginRight="20dp"
+                    android:clickable="true"
                     android:src="@drawable/ic_help" />
 
                 <EditText
@@ -110,6 +111,7 @@
                     android:layout_alignParentTop="true"
                     android:layout_marginLeft="17dp"
                     android:layout_marginTop="14dp"
+                    android:clickable="true"
                     android:text="@string/login_password_title"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="@color/headings" />

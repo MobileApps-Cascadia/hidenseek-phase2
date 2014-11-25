@@ -3,18 +3,16 @@ package com.cascadia.hidenseek;
 import com.cascadia.hidenseek.network.PostMatchRequest;
 import com.cascadia.hidenseek.network.PostPlayerRequest;
 
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Spinner;
 
 
@@ -73,6 +71,25 @@ public class HostLogin extends Activity {
 				pm.DoRequest(m);
             }
         });
+        ImageView pwHelp = (ImageView) findViewById(R.id.loginPasswordHelp);
+		pwHelp.setOnClickListener(new View.OnClickListener() {
+	
+			@Override
+			public void onClick(View v) {
+				HelpDialog helpDialog = new HelpDialog("This is a passworrd you will set and give to your firends so they can join your game.  Anyone that does not have this passworrd will not be allowed to join.", "Password" );
+				helpDialog.show(getFragmentManager(), "Help");
+			}
+		});
+		ImageView matchHelp = (ImageView) findViewById(R.id.loginMatchNameHelp);
+		matchHelp.setOnClickListener(new View.OnClickListener() {
+	
+			@Override
+			public void onClick(View v) {
+				HelpDialog helpDialog = new HelpDialog("Create a name for your match.  This is what your user will look for when joining your game", "Match Name");
+				helpDialog.show(getFragmentManager(), "Help");
+			}
+		});
+        
 	}
 
 	private void initSpinner() {
