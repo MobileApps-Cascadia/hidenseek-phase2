@@ -11,7 +11,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:scaleType="fitXY"
-        android:src="@drawable/bg" />
+        android:src="@drawable/bg"
+         />
 
     <ScrollView
         android:id="@+id/scrollView1"
@@ -58,6 +59,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignRight="@+id/configCountTimeInput"
                     android:layout_alignTop="@+id/configCountTimeTitle"
+                    android:clickable="true"
                     android:src="@drawable/ic_help" />
 
                 <EditText
@@ -77,6 +79,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignRight="@+id/configSeekTimeInput"
                     android:layout_alignTop="@+id/configCountTimeHelp"
+                    android:clickable="true"
                     android:src="@drawable/ic_help" />
 
                 <TextView

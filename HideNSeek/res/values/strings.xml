@@ -34,5 +34,7 @@
      <string name="players_List">Players</string>
      <string name="current_Players">Current Players</string>
      <string name="found_btn">Found</string>
+     <string name="back">Back</string>
+     <string name="ok">Back</string>
 
 </resources>
