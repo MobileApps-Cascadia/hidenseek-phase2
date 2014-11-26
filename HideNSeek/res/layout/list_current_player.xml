@@ -2,7 +2,15 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="horizontal" >
+    android:orientation="horizontal"
+    android:showDividers="middle" >
+
+    <Button
+        android:id="@+id/btn_found"
+        android:layout_width="125dp"
+        android:layout_height="wrap_content"
+        android:paddingBottom="5dp"
+        android:text="@string/found_btn" />
 
     <TextView
         android:id="@+id/player_name"
@@ -10,13 +18,7 @@
         android:layout_height="wrap_content"
         android:paddingBottom="5dp"
         android:text="Sample Data"
+        android:textColor="@color/text"
         android:textSize="15sp" />
-
-    <Button
-        android:id="@+id/btn_found"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:paddingBottom="5dp"
-       	android:text="@string/found_btn" />
 
 </LinearLayout>

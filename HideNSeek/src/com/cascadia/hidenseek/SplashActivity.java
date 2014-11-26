@@ -26,7 +26,7 @@ public class SplashActivity extends Activity {
 	private void redirectToLogin() {
 		Intent intentToGame = new Intent(this, Active.class);
 		startActivity(intentToGame);
-		finish();
+		
 	}
 
 	public void startCountDown(View view) {
