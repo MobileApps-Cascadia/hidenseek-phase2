@@ -138,6 +138,21 @@ public class Match {
 		
 	}
 	
+	//Parameters needed to start the match
+	public String ToJSONStart() {
+		JSONObject jObject = new JSONObject();
+		try {
+			jObject.put("countTime", countTime);
+			jObject.put("seekTime", seekTime);
+			return jObject.toString();
+		} catch (JSONException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+
+	
 	private static Match parse(JSONObject jObject) throws JSONException 
 	{
 		Match toReturn = new Match(jObject.getString("name"),

@@ -10,7 +10,7 @@ public abstract class PutStartRequest extends NetworkRequest {
 		Request r = new Request();
 		r.url = baseUrl + "matches/" + toStart.GetId() + "/start/";
 		r.type = RequestType.PUT;
-		r.jsonArgs = m.ToJSONPost();
+		r.jsonArgs = m.ToJSONStart();
 		doRequest(r);
 	}
 	
