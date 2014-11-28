@@ -43,6 +43,31 @@ public class Player {
 		}
 	}
 	
+	public enum Status {
+		Hiding,
+		Spotted,
+		Found;
+		
+		public static Status Parse(String s) {
+			if(s.equalsIgnoreCase("hiding")){
+				return Hiding;
+			} else if (s.equalsIgnoreCase("spotted")) {
+				return Spotted;
+			} else return Found;
+		}
+		
+		public String GetApiString() {
+			switch(this) {
+			case Hiding:
+				return "hiding";
+			case Spotted:
+				return "spotted";
+			default:
+				return "found";
+			}
+		}
+	}
+	
 	public Player(String name, Match match) {
 		this.name = name;
 		this.associatedMatch = match;
@@ -68,6 +93,12 @@ public class Player {
 	public String RoleToJSON() throws JSONException {
 		JSONObject jObject = new JSONObject();
 		jObject.put("role", role.GetApiString());
+		return jObject.toString();
+	}
+
+	public String StatusToJSON() throws JSONException {
+		JSONObject jObject = new JSONObject();
+		jObject.put("status", status.GetApiString());
 		return jObject.toString();
 	}
 	
@@ -142,6 +173,7 @@ public class Player {
 	private Match associatedMatch;
 	private String name;
 	private Role role;
+	private Status status;
 	private int playerId = -1;
 	
 	private static SimpleDateFormat dateTimeFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss", Locale.US);
