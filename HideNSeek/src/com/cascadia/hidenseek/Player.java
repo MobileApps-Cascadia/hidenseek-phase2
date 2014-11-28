@@ -53,7 +53,9 @@ public class Player {
 				return Hiding;
 			} else if (s.equalsIgnoreCase("spotted")) {
 				return Spotted;
-			} else return Found;
+			} else if (s.equalsIgnoreCase("found")) {
+				return Found;
+			} else return null;
 		}
 		
 		public String GetApiString() {
@@ -89,13 +91,15 @@ public class Player {
 		jObject.put("password", password);
 		return jObject.toString();
 	}
-	
+
+	// Prepare the role data for the API request PUT .../players/playerid/role/
 	public String RoleToJSON() throws JSONException {
 		JSONObject jObject = new JSONObject();
 		jObject.put("role", role.GetApiString());
 		return jObject.toString();
 	}
 
+	// Prepare the status data for the API request PUT .../players/playerid/status/
 	public String StatusToJSON() throws JSONException {
 		JSONObject jObject = new JSONObject();
 		jObject.put("status", status.GetApiString());
@@ -126,6 +130,7 @@ public class Player {
 		Player toReturn = new Player(jObject.getString("name"), associatedMatch);
 		toReturn.playerId = jObject.getInt("id");
 		toReturn.role = Role.Parse(jObject.getString("role"));
+		toReturn.status = Status.Parse(jObject.getString("hiderStatus"));
 
 		try {
 			toReturn.location = LocationParser.Parse(jObject.getString("GPSLocation"));
@@ -159,6 +164,14 @@ public class Player {
 	
 	public void SetRole(Role r) {
 		role = r;
+	}
+	
+	public Status GetStatus() {
+		return status;
+	}
+	
+	public void SetStatus(Status s) {
+		status = s;
 	}
 	
 	public int GetId() {
