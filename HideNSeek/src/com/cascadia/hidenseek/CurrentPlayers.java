@@ -112,7 +112,7 @@ public class CurrentPlayers extends Activity {
 				String[] titles = new String[match.players.size()];
 				int i = 0;
 				for(Player p : match.players) {
-					titles[i] = p.GetName();
+					titles[i] = Integer.toString(p.GetId()) + ","+p.GetName()+","+p.GetRole().GetApiString();
 					i++;
 				}
 				CustomPlayersList adapter = new CustomPlayersList(CurrentPlayers.this, titles);
