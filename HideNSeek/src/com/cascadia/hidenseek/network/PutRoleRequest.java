@@ -20,10 +20,15 @@ public abstract class PutRoleRequest extends NetworkRequest {
 	}
 	
 	//To be overwritten
-	protected void onComplete() { }
+		protected void onComplete() { }
+		
+		@Override
+		protected final void processPostExecute(String s) {
+			
+			onComplete();
+		}
+		
+		
+
 	
-	@Override
-	protected final void processPostExecute(String s) {
-		onComplete();
-	}
 }

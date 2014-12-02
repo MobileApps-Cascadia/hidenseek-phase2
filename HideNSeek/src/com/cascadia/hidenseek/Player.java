@@ -73,6 +73,7 @@ public class Player {
 	public Player(String name, Match match) {
 		this.name = name;
 		this.associatedMatch = match;
+		
 	}
 
 	public static List<Player> ParseToList(String jsonStr, Match associatedMatch)

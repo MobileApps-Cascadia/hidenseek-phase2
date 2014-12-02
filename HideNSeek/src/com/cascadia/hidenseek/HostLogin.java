@@ -1,7 +1,9 @@
 package com.cascadia.hidenseek;
 
+import com.cascadia.hidenseek.Player.Role;
 import com.cascadia.hidenseek.network.PostMatchRequest;
 import com.cascadia.hidenseek.network.PostPlayerRequest;
+import com.cascadia.hidenseek.network.PutRoleRequest;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -47,6 +49,8 @@ public class HostLogin extends Activity {
             		protected void onComplete(Match m) {
                     	EditText pName = (EditText) findViewById(R.id.TextPlayerNameInput);
             			LoginManager.playerMe = new Player(pName.getText().toString(), m);
+            			Role seek = Role.Seeker;
+            			LoginManager.playerMe.SetRole(seek);
             			PostPlayerRequest pp = new PostPlayerRequest() {
 							
 							@Override
@@ -56,8 +60,18 @@ public class HostLogin extends Activity {
 							@Override
 							protected void onComplete(Player p) {
 								LoginManager.playerMe = p;
+								PutRoleRequest rr = new PutRoleRequest() {
+									
+									@Override
+									protected void onException(Exception e) {
+										e.printStackTrace();
+										
+									}
+								};
+								rr.DoRequest(LoginManager.playerMe);
 		            			Intent intent = new Intent(HostLogin.this, HostConfig.class);
 		            			startActivity(intent);
+		            			
 							}
 						};
 						pp.DoRequest(LoginManager.playerMe, m.GetPassword());
