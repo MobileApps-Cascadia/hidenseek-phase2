@@ -36,5 +36,6 @@
      <string name="found_btn">Found</string>
      <string name="back">Back</string>
      <string name="ok">Back</string>
+     <string name="title_AlarmManagerBroadcastReceiver">Alarm Manager</string>
 
 </resources>

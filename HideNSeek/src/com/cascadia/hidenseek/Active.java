@@ -1,5 +1,7 @@
 package com.cascadia.hidenseek;
 
+import java.util.GregorianCalendar;
+
 import com.cascadia.hidenseek.Player.Role;
 import com.cascadia.hidenseek.Player.Status;
 import com.cascadia.hidenseek.network.DeletePlayingRequest;
@@ -16,9 +18,12 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.annotation.TargetApi;
+import android.app.AlarmManager;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.location.Location;
@@ -40,6 +45,7 @@ public class Active extends FragmentActivity   {
 	Status pend;
 	Role playerRole;
 	Player temp;
+	String Timer;
 	
 	//Used for periodic callback.
     private Handler h2 = new Handler();
@@ -51,7 +57,8 @@ public class Active extends FragmentActivity   {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_active);
-		
+		Timer = getSharedPreferences("HideNSeek_shared_pref", MODE_PRIVATE).getString("Seektime", null);
+		this.scheduleAlarm();
 		
 		
 		match = LoginManager.GetMatch();
@@ -168,10 +175,34 @@ public class Active extends FragmentActivity   {
 	    };
 	    callback.run(); //Begin periodic updating!
 	}
+	public void scheduleAlarm()
+    {
+            // time at which alarm will be scheduled here alarm is scheduled at 1 day from current time, 
+            // we fetch  the current time in milliseconds and added 1 day time
+            // i.e. 24*60*60*1000= 86,400,000   milliseconds in a day        
+            Long time =  new GregorianCalendar().getTimeInMillis()+Long.parseLong(Timer)*1000;
+
+            // create an Intent and set the class which will execute when Alarm triggers, here we have
+            // given AlarmReciever in the Intent, the onRecieve() method of this class will execute when
+            // alarm triggers and 
+            //we will write the code to send SMS inside onRecieve() method pf Alarmreciever class
+            Intent intentAlarm = new Intent(this, AlarmReciever.class);
+       
+            // create the object
+            AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+
+            //set the alarm for particular time
+            alarmManager.set(AlarmManager.RTC_WAKEUP,time, PendingIntent.getBroadcast(this,1,  intentAlarm, PendingIntent.FLAG_UPDATE_CURRENT));
+            Toast.makeText(this, "Alarm Scheduled", Toast.LENGTH_LONG).show();
+         
+    }
+
 	
 	public void onPause(){
 		super.onPause();
 	}
+	 
+
 	
 	
 	@Override

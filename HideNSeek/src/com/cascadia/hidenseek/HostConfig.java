@@ -139,7 +139,7 @@ public class HostConfig extends Activity {
 						protected void onComplete(Match match) {
 							if(match.GetStatus() == Status.Active) {
 								isActive = false;
-				    			Intent intent = new Intent(HostConfig.this, SplashActivity.class);
+				    			Intent intent = new Intent(HostConfig.this, Active.class);
 				    			startActivity(intent);
 							}
 						}
