@@ -1,5 +1,7 @@
 package com.cascadia.hidenseek;
 
+import com.cascadia.hidenseek.Player.Role;
+import com.cascadia.hidenseek.Player.Status;
 import com.cascadia.hidenseek.network.DeletePlayingRequest;
 import com.cascadia.hidenseek.network.GetPlayerListRequest;
 import com.cascadia.hidenseek.network.PutGpsRequest;
@@ -14,7 +16,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.annotation.TargetApi;
-
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.DialogInterface;
@@ -35,6 +37,9 @@ public class Active extends FragmentActivity   {
 	Match match;
 	Player player;
 	boolean isActive;
+	Status pend;
+	Role playerRole;
+	Player temp;
 	
 	//Used for periodic callback.
     private Handler h2 = new Handler();
@@ -95,9 +100,44 @@ public class Active extends FragmentActivity   {
 					protected void onComplete(Match match) {
 			        	googleMap.clear();
 			        	
-			        	for(Player p : match.players) {
+			        	for( Player p : match.players) {
+			        		pend=p.GetStatus();
+			        		playerRole=p.GetRole();
+			        		temp=p;
+			        		if(pend==Status.Spotted)
+			        		{
+			        			//Create alert dialog to ask if this was correct and if it was mark as not playing
+			        			AlertDialog.Builder builder1 = new AlertDialog.Builder(getBaseContext());
+			        			builder1.setTitle("Found You");
+			                    builder1.setMessage("The Seeker has just marked that he found you is this correct?");
+			                    builder1.setCancelable(true);
+			                    builder1.setPositiveButton("Yes",
+			                            new DialogInterface.OnClickListener() {
+			                        public void onClick(DialogInterface dialog, int id) {
+			                            DeletePlayingRequest dpr = new DeletePlayingRequest() {
+											
+											@Override
+											protected void onException(Exception e) {
+												e.printStackTrace();
+												
+											}
+										};
+										dpr.DoRequest(temp);
+			                        }
+			                    });
+			                    builder1.setNegativeButton("No",
+			                            new DialogInterface.OnClickListener() {
+			                        public void onClick(DialogInterface dialog, int id) {
+			                            dialog.cancel();
+			                        }
+			                    });
+
+			                    AlertDialog alert11 = builder1.create();
+			                    alert11.show();
+			        		}
+			        		
 			        		//Dont't add a marker for players with null locations or one for myself.
-			        		if(p.GetLocation() != null && p.GetId() != player.GetId()) { 
+			        		if(p.GetLocation() != null &&  p.GetId() != player.GetId()) { 
 			        			googleMap.addMarker(
 			        					new MarkerOptions()
 			        						.position(new LatLng(p.GetLocation().getLatitude(),
@@ -108,6 +148,10 @@ public class Active extends FragmentActivity   {
 					}
 	        	};
 	        	gplRequest.DoRequest(match);
+	        	
+	        	
+	        	
+	        	
 	        	
 	        	//Do request. No callback needed. Player location set by
 	        	//Google Maps' onMyLocationChange
