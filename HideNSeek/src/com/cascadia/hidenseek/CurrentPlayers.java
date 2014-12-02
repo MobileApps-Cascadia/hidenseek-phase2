@@ -46,16 +46,7 @@ public class CurrentPlayers extends Activity {
 		list=(ListView)findViewById(R.id.configPlayerList1);
 		isActive = true;
 		
-        
-        
        
-        
-        //Remove count time and search time things if this is a sandbox
-        if(LoginManager.GetMatch().GetType() == MatchType.Sandbox) {
-        	findViewById(R.id.configTimeContainer).setVisibility(View.GONE);
-        }
-        
-		//Change the buttons for joiners.
 		
 	    Runnable callback = new Runnable() {
 	    	
