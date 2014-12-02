@@ -12,7 +12,7 @@ import android.widget.TextView;
 public class SplashActivity extends Activity {
 	private TextView count_down_text = null;
 	private MyCountDownTimer countdowntimer = null;
-	String username, counttime, seektime;
+	String counttime;
 	
 
 	@Override
@@ -22,7 +22,7 @@ public class SplashActivity extends Activity {
 		setContentView(view);
 		initSettings();
 		count_down_text = (TextView) findViewById(R.id.mTextField);
-		countdowntimer = new MyCountDownTimer(Long.parseLong(counttime), 1000);
+		countdowntimer = new MyCountDownTimer(Long.parseLong(counttime)*1000, 1000);
 		countdowntimer.start();
 	}
 
@@ -72,7 +72,7 @@ public class SplashActivity extends Activity {
 
 	}
 	private void initSettings(){		
-		counttime = getSharedPreferences("HideNSeek_shared_pref", MODE_PRIVATE).getString("Counttime", "");
+		counttime = getSharedPreferences("HideNSeek_shared_pref", MODE_PRIVATE).getString("Counttime", "6000");
 		
 		
 		
