@@ -6,11 +6,13 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class SplashActivity extends Activity {
 	private TextView count_down_text = null;
 	private MyCountDownTimer countdowntimer = null;
+	String username, counttime, seektime;
 	
 
 	@Override
@@ -18,8 +20,9 @@ public class SplashActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		final View view = View.inflate(this, R.layout.splash_screen, null);
 		setContentView(view);
+		initSettings();
 		count_down_text = (TextView) findViewById(R.id.mTextField);
-		countdowntimer = new MyCountDownTimer(1000, 1000);
+		countdowntimer = new MyCountDownTimer(Long.parseLong(counttime), 1000);
 		countdowntimer.start();
 	}
 
@@ -67,6 +70,12 @@ public class SplashActivity extends Activity {
 			return isrunning;
 		}
 
+	}
+	private void initSettings(){		
+		counttime = getSharedPreferences("HideNSeek_shared_pref", MODE_PRIVATE).getString("Counttime", "");
+		
+		
+		
 	}
 
 	/**

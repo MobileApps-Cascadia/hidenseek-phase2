@@ -26,6 +26,7 @@ public class HostConfig extends Activity {
 	String username, counttime, seektime;
 	ListView list;
 	boolean isActive;
+	private Settings set;
 	
 	//Used for periodic callback.
     private Handler h2 = new Handler();
@@ -63,6 +64,9 @@ public class HostConfig extends Activity {
             	if(LoginManager.GetMatch().GetType() != MatchType.Sandbox) {
                 	String sCountTime = countTime.getText().toString();
             		String sSeekTime = seekTime.getText().toString();
+            		set.seektime= seekTime.getText().toString();
+            		set.counttime=countTime.getText().toString();
+            		set.sharedPreferences();
             		if(sSeekTime.length() == 0 || sCountTime.length() == 0) {
             			//Error!
             			return;
