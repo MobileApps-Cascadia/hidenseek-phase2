@@ -11,6 +11,8 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Menu;
@@ -26,7 +28,8 @@ public class HostConfig extends Activity {
 	String username, counttime, seektime;
 	ListView list;
 	boolean isActive;
-	private Settings set;
+	SharedPreferences sh_Pref;
+	Editor toEdit;
 	
 	//Used for periodic callback.
     private Handler h2 = new Handler();
@@ -64,9 +67,11 @@ public class HostConfig extends Activity {
             	if(LoginManager.GetMatch().GetType() != MatchType.Sandbox) {
                 	String sCountTime = countTime.getText().toString();
             		String sSeekTime = seekTime.getText().toString();
-            		set.seektime= seekTime.getText().toString();
-            		set.counttime=countTime.getText().toString();
-            		set.sharedPreferences();
+            		sh_Pref = getSharedPreferences("HideNSeek_shared_pref", MODE_PRIVATE); 
+            		toEdit = sh_Pref.edit(); 
+            		toEdit.putString("Counttime", sCountTime);
+            		toEdit.putString("Seektime", sSeekTime);
+            		toEdit.commit(); 
             		if(sSeekTime.length() == 0 || sCountTime.length() == 0) {
             			//Error!
             			return;

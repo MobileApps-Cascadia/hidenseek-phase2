@@ -58,6 +58,8 @@ public class Settings extends Activity implements OnClickListener {
 		toEdit.putString("Seektime", seektime);
 		toEdit.commit(); } 
 	
+	
+	
 	@Override 
 	public void onClick(View currentButton) { 
 		switch (currentButton.getId()) { 
