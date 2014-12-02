@@ -6,13 +6,6 @@ import com.cascadia.hidenseek.Player.Role;
 
 
 public class LoginManager {
-	public static Player playerMe;
-	private static Match m;
-	public static boolean isHost;
-	static Role seek = Role.Seeker;
-	
-	
-	
 	
 
 	public LoginManager() {	} 
@@ -29,10 +22,6 @@ public class LoginManager {
 	 
 	public static void ValidateJoinLogin(Player p) {
 		playerMe = p;
-		if(isHost)
-		{
-			playerMe.SetRole(seek);
-		}
 		m = p.GetAssociatedMatch();
 		isHost = false;
 	}
@@ -44,6 +33,9 @@ public class LoginManager {
 	public static Match GetMatch() {
 		return m;
 	}
+	public static Player playerMe;
+	private static Match m;
+	public static boolean isHost;
 	
 	
 
