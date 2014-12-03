@@ -7,16 +7,11 @@
     tools:ignore="MergeRootFrame" >
 
     <ImageView
-        android:id="@+id/imageView1"
+        android:id="@+id/JoinView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:scaleType="fitXY"
         android:src="@drawable/bg" />
-<!-- 
-    <ScrollView
-        android:id="@+id/scrollView1"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" > -->
 
     <ScrollView
         android:id="@+id/scrollView1"
@@ -35,7 +30,7 @@
                 android:layout_weight="0.08" >
 
                 <TextView
-                    android:id="@+id/configPlayersTitle"
+                    android:id="@+id/selectMatchTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
@@ -47,11 +42,12 @@
                     android:textColor="@color/headings" />
 
                 <ImageView
-                    android:id="@+id/configPlayersHelp"
+                    android:contentDescription="@string/descr"
+                    android:id="@+id/selectMatchHelp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
-                    android:layout_alignTop="@+id/configPlayersTitle"
+                    android:layout_alignTop="@+id/selectMatchTitle"
                     android:layout_marginRight="20dp"
                     android:src="@drawable/ic_help" />
 
@@ -59,9 +55,9 @@
                     android:id="@+id/btnJoinSelectMatch"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignLeft="@+id/configPlayersTitle"
-                    android:layout_alignRight="@+id/configPlayersHelp"
-                    android:layout_below="@+id/configPlayersTitle"
+                    android:layout_alignLeft="@+id/selectMatchTitle"
+                    android:layout_alignRight="@+id/selectMatchHelp"
+                    android:layout_below="@+id/selectMatchTitle"
                     android:text="Select Match" />
             </RelativeLayout>
 
@@ -71,7 +67,7 @@
                 android:layout_weight="0.08" >
 
                 <TextView
-                    android:id="@+id/JoinPasswordText"
+                    android:id="@+id/JoinPasswordTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
@@ -83,11 +79,12 @@
                     android:textColor="@color/headings" />
 
                 <ImageView
-                    android:id="@+id/ImageView022"
+                    android:contentDescription="@string/descr"
+                    android:id="@+id/JoinPasswordHelp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
-                    android:layout_alignTop="@+id/JoinPasswordText"
+                    android:layout_alignTop="@+id/JoinPasswordTitle"
                     android:layout_marginRight="20dp"
                     android:src="@drawable/ic_help" />
 
@@ -95,9 +92,9 @@
                     android:id="@+id/JoinPasswordInput"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignLeft="@+id/JoinPasswordText"
-                    android:layout_alignRight="@+id/ImageView022"
-                    android:layout_below="@+id/JoinPasswordText"
+                    android:layout_alignLeft="@+id/JoinPasswordTitle"
+                    android:layout_alignRight="@+id/JoinPasswordHelp"
+                    android:layout_below="@+id/JoinPasswordTitle"
                     android:layout_marginTop="5dp"
                     android:ems="10"
                     android:inputType="textPassword" >
@@ -112,7 +109,7 @@
                 android:layout_weight="0.08" >
 
                 <TextView
-                    android:id="@+id/TextView01"
+                    android:id="@+id/PlayerNameTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
@@ -124,26 +121,28 @@
                     android:textColor="@color/headings" />
 
                 <ImageView
-                    android:id="@+id/ImageView01"
+                    android:contentDescription="@string/descr"
+                    android:id="@+id/PlayerNameHelp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
-                    android:layout_alignTop="@+id/TextView01"
+                    android:layout_alignTop="@+id/PlayerNameTitle"
                     android:layout_marginRight="20dp"
                     android:src="@drawable/ic_help" />
 
                 <EditText
-                    android:id="@+id/TextPlayerNameInput"
+                    android:id="@+id/PlayerNameInput"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignLeft="@+id/TextView01"
-                    android:layout_alignRight="@+id/ImageView01"
-                    android:layout_below="@+id/TextView01"
+                    android:layout_alignLeft="@+id/PlayerNameTitle"
+                    android:layout_alignRight="@+id/PlayerNameHelp"
+                    android:layout_below="@+id/PlayerNameHelp"
                     android:layout_marginTop="5dp"
                     android:ems="10" />
             </RelativeLayout>
 
             <ImageButton
+                android:contentDescription="@string/descr"
                 android:id="@+id/btnJoinJoin"
                 android:layout_width="153dp"
                 android:layout_height="149dp"
@@ -156,7 +155,8 @@
 
     </ScrollView>
 
-  <!--   </ScrollView> -->
+
+
 
 </FrameLayout>
 
