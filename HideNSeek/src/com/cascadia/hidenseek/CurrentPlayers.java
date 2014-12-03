@@ -1,20 +1,16 @@
 package com.cascadia.hidenseek;
-
-import com.cascadia.hidenseek.Match.MatchType;
+import com.cascadia.hidenseek.Player;
 import com.cascadia.hidenseek.Match.Status;
 import com.cascadia.hidenseek.network.GetMatchRequest;
 import com.cascadia.hidenseek.network.GetPlayerListRequest;
-
-
 import android.app.Activity;
 import android.app.Dialog;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
+
 
 import android.widget.ListView;
 
@@ -103,7 +99,9 @@ public class CurrentPlayers extends Activity {
 				String[] titles = new String[match.players.size()];
 				int i = 0;
 				for(Player p : match.players) {
+					if(p.GetStatus()==Player.Status.Hiding || p.GetStatus()==null){
 					titles[i] = Integer.toString(p.GetId()) + ","+p.GetName()+","+p.GetRole().GetApiString();
+					}
 					i++;
 				}
 				CustomPlayersList adapter = new CustomPlayersList(CurrentPlayers.this, titles);

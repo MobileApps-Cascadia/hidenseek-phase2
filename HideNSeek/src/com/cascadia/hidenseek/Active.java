@@ -111,7 +111,7 @@ public class Active extends FragmentActivity   {
 					@Override
 					protected void onComplete(Match match) {
 						googleMap.clear();
-							for (Player p : match.players) {
+							for (final Player p : match.players) {
 							pend = p.GetStatus();
 							playerRole = p.GetRole();
 							if (pend == Status.Spotted) {
@@ -127,8 +127,18 @@ public class Active extends FragmentActivity   {
 								.setCancelable(false)
 								.setPositiveButton("Yes",new DialogInterface.OnClickListener() {
 									public void onClick(DialogInterface dialog,int id) {
-										dialog.cancel();
-										
+										p.SetStatus(Status.Found);
+									    PutStatusRequest pp = new PutStatusRequest() {
+											
+											@Override
+											protected void onException(Exception e) {
+												e.printStackTrace();
+											}
+											
+																
+										};
+										pp.DoRequest(p);
+										tagged=true;
 										
 									
 										
@@ -139,6 +149,19 @@ public class Active extends FragmentActivity   {
 									public void onClick(DialogInterface dialog,int id) {
 										// if this button is clicked, just close
 										// the dialog box and do nothing
+										p.SetStatus(Status.Hiding);
+									    PutStatusRequest pp = new PutStatusRequest() {
+											
+											@Override
+											protected void onException(Exception e) {
+												e.printStackTrace();
+											}
+											
+																
+										};
+										pp.DoRequest(p);
+										tagged=true;
+										
 										
 								}
 								});
