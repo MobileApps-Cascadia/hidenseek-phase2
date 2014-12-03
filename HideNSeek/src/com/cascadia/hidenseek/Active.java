@@ -18,6 +18,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.annotation.TargetApi;
+import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -47,6 +48,7 @@ public class Active extends FragmentActivity   {
 	Player temp;
 	String Timer;
 	final Context context = this;
+	boolean tagged=true;
 			
 	
 	//Used for periodic callback.
@@ -112,6 +114,9 @@ public class Active extends FragmentActivity   {
 							pend = p.GetStatus();
 							playerRole = p.GetRole();
 							if (pend == Status.Spotted) {
+								if(tagged)
+								{
+									tagged=false;
 								AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
 										context);
 						 
@@ -121,8 +126,11 @@ public class Active extends FragmentActivity   {
 								.setCancelable(false)
 								.setPositiveButton("Yes",new DialogInterface.OnClickListener() {
 									public void onClick(DialogInterface dialog,int id) {
-										// if this button is clicked, close
-										// current activity
+										dialog.cancel();
+										
+										
+									
+										
 										
 									}
 								  })
@@ -133,12 +141,14 @@ public class Active extends FragmentActivity   {
 										dialog.cancel();
 									}
 								});
+								
 				 
 								// create alert dialog
 								AlertDialog alertDialog = alertDialogBuilder.create();
 				 
 								// show it
 								alertDialog.show();
+								}
 							}
 							
 
