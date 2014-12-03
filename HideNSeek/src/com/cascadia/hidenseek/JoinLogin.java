@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import com.cascadia.hidenseek.network.GetMatchRequest;
 import com.cascadia.hidenseek.network.PostPlayerRequest;
@@ -23,6 +24,24 @@ public class JoinLogin extends Activity {
 		setContentView(R.layout.activity_join_login);
 		initSettings();
 		
+		ImageView pwHelp = (ImageView) findViewById(R.id.JoinPasswordHelp);
+		pwHelp.setOnClickListener(new View.OnClickListener() {
+	
+			@Override
+			public void onClick(View v) {
+				HelpDialog helpDialog = new HelpDialog("Get the passworrd from the Match Host/Hostess.", "Password" );
+				helpDialog.show(getFragmentManager(), "Help");
+			}
+		});
+		ImageView matchHelp = (ImageView) findViewById(R.id.selectMatchHelp);
+		matchHelp.setOnClickListener(new View.OnClickListener() {
+	
+			@Override
+			public void onClick(View v) {
+				HelpDialog helpDialog = new HelpDialog("Select a match to join.  The game will soon start! Hide in a safe place!", "Select a Match.");
+				helpDialog.show(getFragmentManager(), "Help");
+			}
+		});
 		ImageButton btnJoin = (ImageButton) findViewById(R.id.btnJoinJoin);
 		btnJoin.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -72,6 +91,15 @@ public class JoinLogin extends Activity {
 			protected void onComplete(Match match) {
 				EditText mPassword = (EditText) findViewById(R.id.JoinPasswordInput);
 				EditText pName = (EditText) findViewById(R.id.TextPlayerNameInput);
+				String pwInput = mPassword.getText().toString();
+				String pwJason = match.GetPassword();
+				if (!pwInput.contains(pwJason) || !pwJason.contains(pwInput))
+				{
+					String noMatch = mPassword.getText().toString() + " -- " + match.GetPassword();
+					HelpDialog helpDialog = new HelpDialog("Enter the correct password for the match! Ask your host!"+ noMatch, "Password" );
+					helpDialog.show(getFragmentManager(), "Help");
+					return;
+				}
 				Player p = new Player(pName.getText().toString(), match);
 				PostPlayerRequest ppRequest = new PostPlayerRequest() {
 					@Override
