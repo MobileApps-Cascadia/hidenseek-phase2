@@ -90,7 +90,7 @@ public class JoinLogin extends Activity {
 			@Override
 			protected void onComplete(Match match) {
 				EditText mPassword = (EditText) findViewById(R.id.JoinPasswordInput);
-				EditText pName = (EditText) findViewById(R.id.TextPlayerNameInput);
+				EditText pName = (EditText) findViewById(R.id.PlayerNameInput);
 				String pwInput = mPassword.getText().toString();
 				String pwJason = match.GetPassword();
 				if (!pwInput.contains(pwJason) || !pwJason.contains(pwInput))
@@ -147,7 +147,7 @@ public class JoinLogin extends Activity {
 	 */
 	private void initSettings(){		
 		username = getSharedPreferences("HideNSeek_shared_pref", MODE_PRIVATE).getString("Username","");
-		EditText uName = (EditText)findViewById(R.id.TextPlayerNameInput);
+		EditText uName = (EditText)findViewById(R.id.PlayerNameInput);
 		uName.setText(username);
 	}
 }

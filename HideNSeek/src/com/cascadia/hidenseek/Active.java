@@ -46,6 +46,8 @@ public class Active extends FragmentActivity   {
 	Role playerRole;
 	Player temp;
 	String Timer;
+	final Context context = this;
+			
 	
 	//Used for periodic callback.
     private Handler h2 = new Handler();
@@ -99,62 +101,63 @@ public class Active extends FragmentActivity   {
 	        @Override
 	        public void run() {
 	        	//Do request and update values in match. No callback needed.
-	        	GetPlayerListRequest gplRequest = new GetPlayerListRequest() {			
+				GetPlayerListRequest gplRequest = new GetPlayerListRequest() {
 					@Override
-					protected void onException(Exception e) {}
-					
+					protected void onException(Exception e) {
+					}
 					@Override
 					protected void onComplete(Match match) {
-			        	googleMap.clear();
-			        	
-			        	for( Player p : match.players) {
-			        		pend=p.GetStatus();
-			        		playerRole=p.GetRole();
-			        		temp=p;
-			        		if(pend==Status.Spotted)
-			        		{
-			        			//Create alert dialog to ask if this was correct and if it was mark as not playing
-			        			AlertDialog.Builder builder1 = new AlertDialog.Builder(getBaseContext());
-			        			builder1.setTitle("Found You");
-			                    builder1.setMessage("The Seeker has just marked that he found you is this correct?");
-			                    builder1.setCancelable(true);
-			                    builder1.setPositiveButton("Yes",
-			                            new DialogInterface.OnClickListener() {
-			                        public void onClick(DialogInterface dialog, int id) {
-			                            DeletePlayingRequest dpr = new DeletePlayingRequest() {
-											
-											@Override
-											protected void onException(Exception e) {
-												e.printStackTrace();
-												
-											}
-										};
-										dpr.DoRequest(temp);
-			                        }
-			                    });
-			                    builder1.setNegativeButton("No",
-			                            new DialogInterface.OnClickListener() {
-			                        public void onClick(DialogInterface dialog, int id) {
-			                            dialog.cancel();
-			                        }
-			                    });
+						googleMap.clear();
+							for (Player p : match.players) {
+							pend = p.GetStatus();
+							playerRole = p.GetRole();
+							if (pend == Status.Spotted) {
+								AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+										context);
+						 
+									// set title
+									alertDialogBuilder.setTitle("Your Title");
+								alertDialogBuilder.setMessage("Click yes to exit!")
+								.setCancelable(false)
+								.setPositiveButton("Yes",new DialogInterface.OnClickListener() {
+									public void onClick(DialogInterface dialog,int id) {
+										// if this button is clicked, close
+										// current activity
+										
+									}
+								  })
+								.setNegativeButton("No",new DialogInterface.OnClickListener() {
+									public void onClick(DialogInterface dialog,int id) {
+										// if this button is clicked, just close
+										// the dialog box and do nothing
+										dialog.cancel();
+									}
+								});
+				 
+								// create alert dialog
+								AlertDialog alertDialog = alertDialogBuilder.create();
+				 
+								// show it
+								alertDialog.show();
+							}
+							
 
-			                    AlertDialog alert11 = builder1.create();
-			                    alert11.show();
-			        		}
-			        		
-			        		//Dont't add a marker for players with null locations or one for myself.
-			        		if(p.GetLocation() != null &&  p.GetId() != player.GetId()) { 
-			        			googleMap.addMarker(
-			        					new MarkerOptions()
-			        						.position(new LatLng(p.GetLocation().getLatitude(),
-			        									p.GetLocation().getLongitude()))
-			        						.title(p.GetName()));
-			        		}
-			        	}
+							// Dont't add a marker for players with null
+							// locations or one for myself.
+							if (p.GetLocation() != null
+									&& p.GetId() != player.GetId()) {
+								googleMap.addMarker(new MarkerOptions()
+										.position(
+												new LatLng(p.GetLocation()
+														.getLatitude(), p
+														.GetLocation()
+														.getLongitude()))
+										.title(p.GetName()));
+							}
+						}
 					}
-	        	};
-	        	gplRequest.DoRequest(match);
+				};
+				gplRequest.DoRequest(match);
 	        	
 	        	
 	        	
