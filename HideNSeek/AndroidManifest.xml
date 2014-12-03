@@ -100,8 +100,11 @@
 
         <activity
             android:name="com.cascadia.hidenseek.SelectMatch"
+           android:theme="@android:style/Theme.Holo"
             android:label="@string/title_activity_select_match"
-            android:parentActivityName="com.cascadia.hidenseek.JoinLogin" >
+            android:parentActivityName="com.cascadia.hidenseek.JoinLogin"
+            
+            >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.cascadia.hidenseek.JoinLogin" />

@@ -28,6 +28,7 @@ public class SelectMatch extends Activity {
 
 		l = (ListView) findViewById(R.id.configPlayerList);
 		
+		
 		l.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
 			@Override
