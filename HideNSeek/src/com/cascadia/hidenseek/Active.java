@@ -178,15 +178,28 @@ public class Active extends FragmentActivity   {
 
 							// Dont't add a marker for players with null
 							// locations or one for myself.
-							if (p.GetLocation() != null
-									&& p.GetId() != player.GetId()) {
-								googleMap.addMarker(new MarkerOptions()
-										.position(
-												new LatLng(p.GetLocation()
-														.getLatitude(), p
-														.GetLocation()
-														.getLongitude()))
-										.title(p.GetName()));
+							if (match.GetType() != Match.MatchType.Sandbox) {
+								if (p.GetLocation() != null	&& p.GetId() != player.GetId()&& p.GetRole() != Player.Role.Seeker) {
+									googleMap.addMarker(new MarkerOptions()
+											.position(
+													new LatLng(p.GetLocation()
+															.getLatitude(), p
+															.GetLocation()
+															.getLongitude()))
+											.title(p.GetName()));
+								}
+							}
+							else
+							{
+								if (p.GetLocation() != null	&& p.GetId() != player.GetId()&&p.GetStatus()!=Player.Status.Found) {
+									googleMap.addMarker(new MarkerOptions()
+											.position(
+													new LatLng(p.GetLocation()
+															.getLatitude(), p
+															.GetLocation()
+															.getLongitude()))
+											.title(p.GetName()));
+								}
 							}
 						}
 					}

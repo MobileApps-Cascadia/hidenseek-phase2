@@ -63,6 +63,7 @@ public class HostConfig extends Activity {
             	EditText countTime = (EditText) findViewById(R.id.configCountTimeInput);
             	EditText seekTime = (EditText) findViewById(R.id.configSeekTimeInput);
             	Match m = LoginManager.GetMatch();
+            	
             	//Validate countTime and searchTime input unless this is a sandbox
             	if(LoginManager.GetMatch().GetType() != MatchType.Sandbox) {
                 	String sCountTime = countTime.getText().toString();
@@ -94,6 +95,12 @@ public class HostConfig extends Activity {
 					}
 					@Override
 					protected void onComplete(Match m) {
+						String seek=String.valueOf(m.GetSeekTime());
+						sh_Pref = getSharedPreferences("HideNSeek_shared_pref", MODE_PRIVATE); 
+	            		toEdit = sh_Pref.edit(); 
+	            		toEdit.putString("Seektime", seek);
+	            		toEdit.commit(); 
+						
 		    			Intent intent = new Intent(HostConfig.this, SplashActivity.class);
 		    			startActivity(intent);
 					}
@@ -111,7 +118,7 @@ public class HostConfig extends Activity {
 		});
         
         //Remove count time and search time things if this is a sandbox
-        if(LoginManager.GetMatch().GetType() == MatchType.Sandbox) {
+        if(LoginManager.GetMatch().GetType() == MatchType.Sandbox||!LoginManager.isHost) {
         	findViewById(R.id.configTimeContainer).setVisibility(View.GONE);
         }
         
