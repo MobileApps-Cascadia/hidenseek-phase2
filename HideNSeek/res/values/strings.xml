@@ -15,7 +15,7 @@
 
     <string name="login_match_type_title">Match Type</string>
     <string name="title_activity_join_login">Join Match</string>
-    <string name="Password">login_password_text_title</string>
+    <string name="match_password">login_password_text_title</string>
     <string name="login_password_title">Match Password</string>
     <string name="login_no_matches">No matches found</string>
     <string name="title_activity_host_config">Config Match</string>
@@ -37,7 +37,8 @@
      <string name="current_Players">Current Players</string>
      <string name="found_btn">Found</string>
      <string name="back">Back</string>
-     <string name="ok">Back</string>
+     <string name="ok">OK</string>
      <string name="title_AlarmManagerBroadcastReceiver">Alarm Manager</string>
      <string name="descr">image</string>
+     <string name="select_match">Select Match</string>
 </resources>

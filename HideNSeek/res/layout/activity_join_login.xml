@@ -59,7 +59,7 @@
                     android:layout_alignStart="@+id/selectMatchTitle"
                     android:layout_alignEnd="@+id/selectMatchHelp"
                     android:layout_below="@+id/selectMatchTitle"
-                    android:text="Select Match" />
+                    android:text="@string/select_match" />
             </RelativeLayout>
 
             <RelativeLayout
