@@ -87,18 +87,21 @@ public class HostConfig extends Activity {
             	if(LoginManager.GetMatch().GetType() != MatchType.Sandbox) {
                 	String sCountTime = countTime.getText().toString();
             		String sSeekTime = seekTime.getText().toString();
-            		sh_Pref = getSharedPreferences("HideNSeek_shared_pref", MODE_PRIVATE); 
-            		toEdit = sh_Pref.edit(); 
-            		toEdit.putString("Counttime", sCountTime);
-            		toEdit.putString("Seektime", sSeekTime);
-            		toEdit.commit(); 
+            		
             		if(sSeekTime.length() == 0 || sCountTime.length() == 0) {
-            			//Error!
+            			HelpDialog helpDialog = new HelpDialog("Please enter the count time and search time.", "Enter times" );
+        				helpDialog.show(getFragmentManager(), "Help");
             			return;
             		}
 	            	try {
 		            	m.SetCountTime(Integer.parseInt(countTime.getText().toString()));
 		            	m.SetSeekTime(Integer.parseInt(seekTime.getText().toString()));
+		            	// Save if we go through
+		            	sh_Pref = getSharedPreferences("HideNSeek_shared_pref", MODE_PRIVATE); 
+	            		toEdit = sh_Pref.edit(); 
+	            		toEdit.putString("Counttime", sCountTime);
+	            		toEdit.putString("Seektime", sSeekTime);
+	            		toEdit.commit(); 
 	            	} catch(NumberFormatException e) {
 
 	        			Dialog d = new Dialog(HostConfig.this);

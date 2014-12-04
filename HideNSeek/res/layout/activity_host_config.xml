@@ -52,6 +52,7 @@
                     android:layout_below="@+id/configCountTimeTitle"
                     android:layout_marginTop="5dp"
                     android:ems="10"
+                    android:hint="@string/count_time_hint"
                     android:inputType="time" />
 
                 <ImageView
@@ -73,6 +74,7 @@
                     android:layout_alignParentEnd="true"
                     android:layout_marginEnd="20dp"
                     android:ems="10"
+                    android:hint="@string/seek_time_hint"
                     android:inputType="time" />
 
                 <ImageView
