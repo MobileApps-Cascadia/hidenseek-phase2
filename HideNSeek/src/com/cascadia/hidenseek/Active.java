@@ -19,6 +19,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.annotation.TargetApi;
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.AlertDialog;
@@ -74,6 +75,11 @@ public class Active extends FragmentActivity   {
 			d.setTitle("Error: null match.");
 			d.show();
 			finish();
+			
+		}
+		ActionBar ab = getActionBar();
+		if(player.GetRole()!=Player.Role.Seeker){
+		ab.hide();
 		}
 		
 		
