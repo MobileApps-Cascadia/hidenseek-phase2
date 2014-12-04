@@ -10,6 +10,7 @@ import com.cascadia.hidenseek.network.GetPlayerListRequest;
 import com.cascadia.hidenseek.network.PutGpsRequest;
 import com.cascadia.hidenseek.network.PutRoleRequest;
 import com.cascadia.hidenseek.network.PutStatusRequest;
+import com.cascadia.hidenseek.network.PutStopRequest;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -57,7 +58,8 @@ public class Active extends FragmentActivity   {
 	boolean tagged=true;
 	private ShowHider sh;
 	Long showTime= (long) 30000;
-	
+	private int counter;
+	private int numPlayers;
 	
 	
 	
@@ -124,12 +126,14 @@ public class Active extends FragmentActivity   {
 					}
 					@Override
 					protected void onComplete(Match match) {
+						CheckForEndGame();
 						googleMap.clear();
 							for (final Player p : match.players) {
 							pend = p.GetStatus();
 							if(p.GetRole()==Player.Role.Seeker){
 								temp=p;
 							}
+							
 							playerRole = p.GetRole();
 							if (pend == Status.Spotted) {
 								if(tagged)
@@ -157,6 +161,9 @@ public class Active extends FragmentActivity   {
 										pp.DoRequest(p);
 										tagged=true;
 										ShowSeeker();
+										Intent intentEnd = new Intent(context, Home.class);
+										 CheckForEndGame();
+										startActivity(intentEnd);
 										
 										
 										
@@ -199,6 +206,10 @@ public class Active extends FragmentActivity   {
 
 							// Dont't add a marker for players with null
 							// locations or one for myself.
+							if(match.GetStatus()==Match.Status.Complete){
+								Intent intent = new Intent(context,Home.class);
+								startActivity(intent);
+							}
 							if (match.GetType() != Match.MatchType.Sandbox) {
 								if (p.GetLocation() != null	&& p.GetId() != player.GetId()&& p.GetRole() != Player.Role.Seeker) {
 									googleMap.addMarker(new MarkerOptions()
@@ -246,6 +257,33 @@ public class Active extends FragmentActivity   {
 	    };
 	    callback.run(); //Begin periodic updating!
 	}
+	public void CheckForEndGame(){
+		GetPlayerListRequest gplRequest = new GetPlayerListRequest() {
+			@Override
+			protected void onException(Exception e) {
+			}
+			@Override
+			protected void onComplete(Match match) {
+				numPlayers=match.players.size();
+				for (Player p : match.players) {
+					if(p.GetStatus()==Player.Status.Found){
+						counter++;
+						if(counter==numPlayers-1)
+						{
+						//Needtodo building put stop request 
+							PutStopRequest psr = new PutStopRequest();
+							psr.DoRequest(match);
+							
+						}
+					}
+				}
+				counter=0;
+			}
+		};
+		gplRequest.DoRequest(match);
+		
+	}
+	
 	public void scheduleAlarm()
     {
             // time at which alarm will be scheduled here alarm is scheduled at 1 day from current time, 

@@ -11,6 +11,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.content.Context;
+import android.content.Intent;
+
 public class Match {
 
 	public enum Status {
@@ -224,6 +227,10 @@ public class Match {
 	private Status status;
 	private MatchType type;
 	private Date startTime;
+	private Date endTime;
+	private Status stat;
+	Intent intent;
+	
 	
 	private static SimpleDateFormat dateTimeFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss", Locale.US);
 	
@@ -232,5 +239,11 @@ public class Match {
 	public void StartMatch() {
 		startTime = new Date();
 		status = Status.Active;
+	}
+	public void stopMatch() {
+		endTime=new Date();
+		stat=Status.Complete;
+		// TODO Auto-generated method stub
+		
 	}
 }
