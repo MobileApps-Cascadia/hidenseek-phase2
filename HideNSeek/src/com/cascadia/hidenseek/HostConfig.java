@@ -117,8 +117,16 @@ public class HostConfig extends Activity {
 					}
 					@Override
 					protected void onComplete(Match m) {
-						Intent intent = new Intent(HostConfig.this, SplashActivity.class);
+						Intent intent;
+						if(LoginManager.GetMatch().GetType()==Match.MatchType.HideNSeek){
+						intent = new Intent(HostConfig.this, SplashActivity.class);
 		    			startActivity(intent);
+						}
+						else{
+							intent=new Intent(HostConfig.this, Active.class);
+							startActivity(intent);
+						}
+							
 					}
 				};
 				request.DoRequest(m);

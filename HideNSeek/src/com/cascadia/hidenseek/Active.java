@@ -70,22 +70,27 @@ public class Active extends FragmentActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_active);
-		if(LoginManager.isHost){
-			Timer = getSharedPreferences("HideNSeek_shared_pref", MODE_PRIVATE)
-					.getString("Seektime", null);
-			this.scheduleAlarm();
-		}
+		
 		
 
 		match = LoginManager.GetMatch();
 		player = LoginManager.playerMe;
 		isActive = true;
+		
 		if (match == null || player == null) {
 			Dialog d = new Dialog(this);
 			d.setTitle("Error: null match.");
 			d.show();
 			finish();
 
+		}
+		if(LoginManager.isHost){
+			if(LoginManager.GetMatch().GetType()==Match.MatchType.HideNSeek)
+			{
+			Timer = getSharedPreferences("HideNSeek_shared_pref", MODE_PRIVATE)
+					.getString("Seektime", null);
+			this.scheduleAlarm();
+			}
 		}
 		
 		
@@ -142,14 +147,18 @@ public class Active extends FragmentActivity {
 						counter=0;
 						for (final Player p : match.players) {
 							pend = p.GetStatus();
+							if(match.GetType()==Match.MatchType.HideNSeek)
+							{
 							if(p.GetStatus()==Player.Status.Found)
 							{
 								counter++;
 								if(counter==numPlayers-1)
 								{
+									
 									CheckForEndGame();
 								}
 								
+							}
 							}
 							if (p.GetRole() == Player.Role.Seeker) {
 								temp = p;
