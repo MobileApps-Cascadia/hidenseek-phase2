@@ -314,7 +314,7 @@ public class Active extends FragmentActivity {
 		// we fetch the current time in milliseconds and added 1 day time
 		// i.e. 24*60*60*1000= 86,400,000 milliseconds in a day
 		Long time = new GregorianCalendar().getTimeInMillis()
-				+ Long.parseLong(Timer)*1000 ;
+				+ Long.parseLong(Timer)*60000 ;
 
 		// create an Intent and set the class which will execute when Alarm
 		// triggers, here we have
