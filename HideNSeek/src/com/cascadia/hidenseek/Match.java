@@ -219,6 +219,9 @@ public class Match {
 	public Status GetStatus() {
 		return status;
 	}
+	public void SetStatus(Match.Status s){
+		status= s;
+	}
 	private int matchId = -1; //Does not get set by constructor; set by 
 	private String name;
 	private String password;

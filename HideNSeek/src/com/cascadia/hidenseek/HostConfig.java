@@ -95,13 +95,7 @@ public class HostConfig extends Activity {
 					}
 					@Override
 					protected void onComplete(Match m) {
-						String seek=String.valueOf(m.GetSeekTime());
-						sh_Pref = getSharedPreferences("HideNSeek_shared_pref", MODE_PRIVATE); 
-	            		toEdit = sh_Pref.edit(); 
-	            		toEdit.putString("Seektime", seek);
-	            		toEdit.commit(); 
-						
-		    			Intent intent = new Intent(HostConfig.this, SplashActivity.class);
+						Intent intent = new Intent(HostConfig.this, SplashActivity.class);
 		    			startActivity(intent);
 					}
 				};
@@ -146,7 +140,12 @@ public class HostConfig extends Activity {
 						protected void onComplete(Match match) {
 							if(match.GetStatus() == Status.Active) {
 								isActive = false;
-				    			Intent intent = new Intent(HostConfig.this, Active.class);
+								String seek=String.valueOf(match.GetSeekTime());
+								sh_Pref = getSharedPreferences("HideNSeek_shared_pref", MODE_PRIVATE); 
+			            		toEdit = sh_Pref.edit(); 
+			            		toEdit.putString("Seektime", seek);
+			            		toEdit.commit(); 
+				    			Intent intent = new Intent(HostConfig.this,Active.class);
 				    			startActivity(intent);
 							}
 						}
