@@ -20,6 +20,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 
@@ -54,6 +55,24 @@ public class HostConfig extends Activity {
 		list=(ListView)findViewById(R.id.configPlayerList);
 		isActive = true;
 		
+		ImageView countHelp = (ImageView) findViewById(R.id.configCountTimeHelp);
+		countHelp.setOnClickListener(new View.OnClickListener() {
+	
+			@Override
+			public void onClick(View v) {
+				HelpDialog helpDialog = new HelpDialog("Enter the count time to begin the match.", "Count Time" );
+				helpDialog.show(getFragmentManager(), "Help");
+			}
+		});
+		ImageView searchHelp = (ImageView) findViewById(R.id.configSeekTimeHelp);
+		searchHelp.setOnClickListener(new View.OnClickListener() {
+	
+			@Override
+			public void onClick(View v) {
+				HelpDialog helpDialog = new HelpDialog("Enter the time that would last for the game.", "Search Time");
+				helpDialog.show(getFragmentManager(), "Help");
+			}
+		});
         ImageButton btnBeginMatch = (ImageButton) findViewById(R.id.btnConfigBegin);
         ImageButton btnCancelMatch = (ImageButton) findViewById(R.id.btnConfigCancel);
         
@@ -68,18 +87,21 @@ public class HostConfig extends Activity {
             	if(LoginManager.GetMatch().GetType() != MatchType.Sandbox) {
                 	String sCountTime = countTime.getText().toString();
             		String sSeekTime = seekTime.getText().toString();
-            		sh_Pref = getSharedPreferences("HideNSeek_shared_pref", MODE_PRIVATE); 
-            		toEdit = sh_Pref.edit(); 
-            		toEdit.putString("Counttime", sCountTime);
-            		toEdit.putString("Seektime", sSeekTime);
-            		toEdit.commit(); 
+            		
             		if(sSeekTime.length() == 0 || sCountTime.length() == 0) {
-            			//Error!
+            			HelpDialog helpDialog = new HelpDialog("Please enter the count time and search time.", "Enter times" );
+        				helpDialog.show(getFragmentManager(), "Help");
             			return;
             		}
 	            	try {
 		            	m.SetCountTime(Integer.parseInt(countTime.getText().toString()));
 		            	m.SetSeekTime(Integer.parseInt(seekTime.getText().toString()));
+		            	// Save if we go through
+		            	sh_Pref = getSharedPreferences("HideNSeek_shared_pref", MODE_PRIVATE); 
+	            		toEdit = sh_Pref.edit(); 
+	            		toEdit.putString("Counttime", sCountTime);
+	            		toEdit.putString("Seektime", sSeekTime);
+	            		toEdit.commit(); 
 	            	} catch(NumberFormatException e) {
 
 	        			Dialog d = new Dialog(HostConfig.this);

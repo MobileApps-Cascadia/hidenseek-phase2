@@ -15,13 +15,15 @@
 
     <string name="login_match_type_title">Match Type</string>
     <string name="title_activity_join_login">Join Match</string>
-    <string name="Password">login_password_text_title</string>
+    <string name="match_password">login_password_text_title</string>
     <string name="login_password_title">Match Password</string>
     <string name="login_no_matches">No matches found</string>
     <string name="title_activity_host_config">Config Match</string>
     <string name="config_seek_time">Search Time</string>
     <string name="config_counting_time"></string>
     <string name="config_count_time">Count Time</string>
+    <string name="seek_time_hint">time in mins.</string>
+    <string name="count_time_hint">time in secs.</string>
     <string name="config_players">Players</string>
     <string name="title_activity_active">Active Game</string>
     <string name="player_name">Player Name</string>
@@ -35,7 +37,8 @@
      <string name="current_Players">Current Players</string>
      <string name="found_btn">Found</string>
      <string name="back">Back</string>
-     <string name="ok">Back</string>
+     <string name="ok">OK</string>
      <string name="title_AlarmManagerBroadcastReceiver">Alarm Manager</string>
      <string name="descr">image</string>
+     <string name="select_match">Select Match</string>
 </resources>
