@@ -79,7 +79,12 @@ public class JoinLogin extends Activity {
 		}
 		String intString = SelectMatch.selectedMatch.trim().replaceFirst(" - .*", "");
 		int matchId = Integer.parseInt(intString);
-		
+		if (LoginManager.GetMatch()!= null && LoginManager.GetMatch().GetId() == matchId)
+		{
+			HelpDialog helpDialog = new HelpDialog("You can't join the match you already in.", "Join a Match.");
+			helpDialog.show(getFragmentManager(), "Help");
+			return;
+		}
 		GetMatchRequest gmRequest = new GetMatchRequest() {
 			
 			@Override
