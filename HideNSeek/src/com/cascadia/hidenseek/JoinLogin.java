@@ -100,6 +100,13 @@ public class JoinLogin extends Activity {
 					helpDialog.show(getFragmentManager(), "Help");
 					return;
 				}
+				String playerName = pName.getText().toString();
+				if (playerName.isEmpty() || playerName.trim().length() <2)
+				{					
+					HelpDialog helpDialog = new HelpDialog("Player name must at least 2 characters and not blanks!", "Player Name" );
+					helpDialog.show(getFragmentManager(), "Help");
+					return;
+				}
 				Player p = new Player(pName.getText().toString(), match);
 				PostPlayerRequest ppRequest = new PostPlayerRequest() {
 					@Override

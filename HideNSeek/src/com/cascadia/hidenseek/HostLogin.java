@@ -33,24 +33,45 @@ public class HostLogin extends Activity {
             	EditText mName = (EditText) findViewById(R.id.loginMatchNameInput);
             	Spinner mType = (Spinner) findViewById(R.id.loginMatchTypeSelect);
             	EditText mPassword = (EditText) findViewById(R.id.loginPasswordInput);
-            	
+            	EditText pName = (EditText) findViewById(R.id.TextPlayerNameInput);
+            	String matchName = mName.getText().toString();
+				if (matchName.isEmpty() || matchName.trim().length() <2)
+				{					
+					HelpDialog helpDialog = new HelpDialog("Match name must at least 2 characters and not blanks!", "Match Name" );
+					helpDialog.show(getFragmentManager(), "Help");
+					return;
+				}
+				String playerPW = mPassword.getText().toString();
+				if (playerPW.isEmpty() || playerPW.trim().length() <2)
+				{					
+					HelpDialog helpDialog = new HelpDialog("Match password must at least 2 characters and not blanks!", "Match Password" );
+					helpDialog.show(getFragmentManager(), "Help");
+					return;
+				}
+				String hostName = pName.getText().toString();
+				if (hostName.isEmpty() || hostName.trim().length() <2)
+				{					
+					HelpDialog helpDialog = new HelpDialog("Host name must at least 2 characters and not blanks!", "Host Name" );
+					helpDialog.show(getFragmentManager(), "Help");
+					return;
+				}
             	Match m = LoginManager.ValidateHostLogin(mName.getText().toString(),
 			            			mPassword.getText().toString(),
 			            			mType.getSelectedItemPosition());
+            	
             	if(m == null) {
             		//TEMP: start activity without sending any info to the server
         			Intent intent = new Intent(HostLogin.this, HostConfig.class);
         			startActivity(intent);
         			return;
             	}
+            	LoginManager.playerMe = new Player(hostName, m);
             	PostMatchRequest pm = new PostMatchRequest() {
 					
             		@Override
-            		protected void onComplete(Match m) {
-                    	EditText pName = (EditText) findViewById(R.id.TextPlayerNameInput);
-            			LoginManager.playerMe = new Player(pName.getText().toString(), m);
-            			Role seek = Role.Seeker;
-            			LoginManager.playerMe.SetRole(seek);
+            		protected void onComplete(Match m) {                   	
+            			
+            			LoginManager.playerMe.SetRole(Role.Seeker);
             			PostPlayerRequest pp = new PostPlayerRequest() {
 							
 							@Override
