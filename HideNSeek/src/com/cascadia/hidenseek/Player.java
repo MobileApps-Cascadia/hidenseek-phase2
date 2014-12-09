@@ -76,6 +76,8 @@ public class Player {
 		
 	}
 
+	
+
 	public static List<Player> ParseToList(String jsonStr, Match associatedMatch)
 			throws JSONException {
 		List<Player> toReturn = new ArrayList<Player>();
@@ -178,6 +180,9 @@ public class Player {
 	public int GetId() {
 		return playerId;
 	}
+	public void SetID(int ID){
+		playerId=ID;
+	}
 	public Match GetAssociatedMatch() {
 		return associatedMatch;
 	}
@@ -191,4 +196,12 @@ public class Player {
 	private int playerId = -1;
 	
 	private static SimpleDateFormat dateTimeFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss", Locale.US);
+
+	public void ResetPlayer() {
+		associatedMatch=null;
+		role=null;
+		status=null;
+		playerId=-1;// TODO Auto-generated method stub
+		
+	}
 }

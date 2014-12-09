@@ -6,7 +6,6 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_host_login">Create Match</string>
     <string name="login_match_name">Match Name</string>
-    
 
     <string-array name="login_match_types">
         <item>Hide and Seek</item>
@@ -32,15 +31,19 @@
     <string name="pref_seek_time">Default Seek Time</string>
     <string name="title_settings">Settings</string>
     <string name="title_activity_select_match">Select Match</string>
-     <string name="title_splash">Select Match</string>
-     <string name="players_List">Players</string>
-     <string name="current_Players">Current Players</string>
-     <string name="found_btn">Found</string>
-     <string name="back">Back</string>
-     <string name="ok">OK</string>
-     <string name="title_AlarmManagerBroadcastReceiver">Alarm Manager</string>
-     <string name="descr">image</string>
-     <string name="select_match">Select Match</string>
+    <string name="title_splash">Select Match</string>
+    <string name="players_List">Players</string>
+    <string name="current_Players">Current Players</string>
+    <string name="found_btn">Found</string>
+    <string name="back">Back</string>
+    <string name="ok">OK</string>
+    <string name="title_AlarmManagerBroadcastReceiver">Alarm Manager</string>
+    <string name="descr">image</string>
+    <string name="select_match">Select Match</string>
+    <string name="endGameMessage">Thank you for playing hide and seek.  If you wish to play again, please hit the button to go back to the main screen.  If not, please remember to leave ideas or feedback for this alpha test.  Thank you!</string>
+    <string name="goHome">Go Back to Homepage</string>
+    <string name="title_activity_temp_to_home">TempToHome</string>
+    <string name="title_activity_temp">Landing Page</string>
+    <string name="title_activity_to_home">ToHome</string>
+
 </resources>
-
-

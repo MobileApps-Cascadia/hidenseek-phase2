@@ -1,7 +1,9 @@
 package com.cascadia.hidenseek;
 
 import java.util.List;
+import java.util.zip.Inflater;
 
+import com.cascadia.hidenseek.FoundAdapter.FoundViewHolder;
 import com.cascadia.hidenseek.Player.Status;
 import com.cascadia.hidenseek.network.PutStatusRequest;
 
@@ -18,6 +20,7 @@ public class CustomPlayersList extends ArrayAdapter<String>{
 
 	private final Activity context;
 	private final String[] web;
+	
 	public CustomPlayersList(Activity context, String[] web) {
 		super(context, R.layout.list_current_player, web);
 		this.context = context;
@@ -25,8 +28,6 @@ public class CustomPlayersList extends ArrayAdapter<String>{
 	}
 	
 	//Add roles here
-	
-	
 	@Override
 	public View getView(int position, View view, ViewGroup parent) {
 		//Create listview
@@ -48,8 +49,9 @@ public class CustomPlayersList extends ArrayAdapter<String>{
 					List<Player> players = LoginManager.GetMatch().players;
 				    for (int i=0; i< players.size(); i++)
 				    {
-				    	 if(players.get(i).GetId() == Integer.parseInt(playerID));
+				    	 if(players.get(i).GetId() == Integer.parseInt(playerID)){
 				    	     p = players.get(i);
+				    	 }
 				    }
 				    if (p!=null && p.GetStatus() == Status.Hiding)
 				    {
@@ -57,8 +59,9 @@ public class CustomPlayersList extends ArrayAdapter<String>{
 						d.setTitle("Player " + p.GetName() + " Found!");
 						d.show(); 
 				    }
-				    else
-				    	return;
+				   else
+					   return;
+				    	
 				    p.SetStatus(Status.Spotted);
 				    PutStatusRequest pp = new PutStatusRequest() {
 						
@@ -82,3 +85,6 @@ public class CustomPlayersList extends ArrayAdapter<String>{
 		return rowView;
 	}
 }
+	
+	
+	

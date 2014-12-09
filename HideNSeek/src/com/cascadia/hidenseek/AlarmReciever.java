@@ -12,7 +12,7 @@ import android.widget.Toast;
 	            public void onReceive(Context context, Intent intent)
 	            {
 	                    // TODO Auto-generated method stub
-	        	 Intent i = new Intent(context, Home.class);  
+	        	 Intent i = new Intent(context, TempToHome.class);  
 	             i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);  
 	             context.startActivity(i); 
 	                    

@@ -64,7 +64,7 @@ public class Active extends FragmentActivity {
 	private Handler h2 = new Handler();
 	// Millisecond delay between callbacks
 	private final int callbackDelay = 500;
-	private final int callbackDelay1 = 15000;
+	private final int callbackDelay1 = 000;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -77,6 +77,8 @@ public class Active extends FragmentActivity {
 		player = LoginManager.playerMe;
 		isActive = true;
 		
+		
+		
 		if (match == null || player == null) {
 			Dialog d = new Dialog(this);
 			d.setTitle("Error: null match.");
@@ -84,14 +86,7 @@ public class Active extends FragmentActivity {
 			finish();
 
 		}
-		if(LoginManager.isHost){
-			if(LoginManager.GetMatch().GetType()==Match.MatchType.HideNSeek)
-			{
-			Timer = getSharedPreferences("HideNSeek_shared_pref", MODE_PRIVATE)
-					.getString("Seektime", null);
-			this.scheduleAlarm();
-			}
-		}
+		
 		
 		
 			
@@ -147,6 +142,11 @@ public class Active extends FragmentActivity {
 						counter=0;
 						for (final Player p : match.players) {
 							pend = p.GetStatus();
+							if(player.GetName().toString()==p.GetName().toString())
+							{
+								player.SetID(p.GetId());
+							}
+							
 							if(match.GetType()==Match.MatchType.HideNSeek)
 							{
 							if(p.GetStatus()==Player.Status.Found)
@@ -165,12 +165,15 @@ public class Active extends FragmentActivity {
 								
 							}
 							
+							
 
 							playerRole = p.GetRole();
+							
 							if (pend == Status.Spotted
-									&& player.GetId() == p.GetId()) {
+									&& player.GetId()==p.GetId()) {
 								if (tagged) {
 									tagged = false;
+									isActive=false;
 									AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
 											context);
 
@@ -189,6 +192,7 @@ public class Active extends FragmentActivity {
 																int id) {
 															
 															p.SetStatus(Player.Status.Found);
+															p.SetLocation(null);
 															PutStatusRequest pp = new PutStatusRequest() {
 
 																@Override
@@ -200,12 +204,10 @@ public class Active extends FragmentActivity {
 															};
 															
 															pp.DoRequest(p);
-															isActive=false;
+															
 															ShowSeeker();
 															tagged = true;
-															Intent intent = new Intent(
-																	context,
-																	Home.class);
+															Intent intent = new Intent(context,TempToHome.class);
 															startActivity(intent);
 
 														}
@@ -233,6 +235,7 @@ public class Active extends FragmentActivity {
 															};
 															pp.DoRequest(p);
 															tagged = true;
+															
 
 														}
 													});
@@ -243,6 +246,7 @@ public class Active extends FragmentActivity {
 
 									// show it
 									alertDialog.show();
+									isActive=true;
 								}
 							}
 
@@ -250,29 +254,23 @@ public class Active extends FragmentActivity {
 							// locations or one for myself.
 
 							if (match.GetType() != Match.MatchType.Sandbox) {
-								if (p.GetLocation() != null
-										&& p.GetId() != player.GetId()
-										&& p.GetRole() != Player.Role.Seeker) {
+								if (p.GetLocation() != null&& p.GetId() != player.GetId()&& p.GetRole() != Player.Role.Seeker&& p.GetStatus() != Player.Status.Found) {
 									googleMap.addMarker(new MarkerOptions()
 											.position(
-													new LatLng(p.GetLocation()
-															.getLatitude(), p
-															.GetLocation()
-															.getLongitude()))
-											.title(p.GetName()));
+													new LatLng(p.GetLocation().getLatitude(), p.GetLocation().getLongitude())).title(p.GetName()));
 								}
 							} else {
-								if (p.GetLocation() != null
-										&& p.GetId() != player.GetId()
-										&& p.GetStatus() != Player.Status.Found) {
-									googleMap.addMarker(new MarkerOptions()
-											.position(
+								if (p.GetLocation() != null&& p.GetId() != player.GetId()) {
+									
+									googleMap.addMarker(new MarkerOptions().position(
 													new LatLng(p.GetLocation()
 															.getLatitude(), p
 															.GetLocation()
 															.getLongitude()))
 											.title(p.GetName()));
+									
 								}
+								
 							}
 						}
 					}
@@ -304,39 +302,11 @@ public class Active extends FragmentActivity {
 			PutStopRequest psr = new PutStopRequest();
 			psr.DoRequest(match);
 			match.SetStatus(Match.Status.Complete);
-			Intent end=new Intent(context,Home.class);
+			Intent end=new Intent(context,TempToHome.class);
 			startActivity(end);
 	}
 
-	public void scheduleAlarm() {
-		// time at which alarm will be scheduled here alarm is scheduled at 1
-		// day from current time,
-		// we fetch the current time in milliseconds and added 1 day time
-		// i.e. 24*60*60*1000= 86,400,000 milliseconds in a day
-		Long time = new GregorianCalendar().getTimeInMillis()
-				+ Long.parseLong(Timer)*60000 ;
-
-		// create an Intent and set the class which will execute when Alarm
-		// triggers, here we have
-		// given AlarmReciever in the Intent, the onRecieve() method of this
-		// class will execute when
-		// alarm triggers and
-		// we will write the code to send SMS inside onRecieve() method pf
-		// Alarmreciever class
-		
-		Intent intentAlarm = new Intent(this, AlarmReciever.class);
-		
-		// create the object
-		AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-
-		// set the alarm for particular time
-		alarmManager.set(AlarmManager.RTC_WAKEUP, time, PendingIntent
-				.getBroadcast(this, 1, intentAlarm,
-						PendingIntent.FLAG_UPDATE_CURRENT));
-		Toast.makeText(this, "Alarm Scheduled", Toast.LENGTH_LONG).show();
-		
-
-	}
+	
 
 	public void ShowSeeker() {
 		sh = new ShowHider(showTime, 1000, temp);

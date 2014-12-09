@@ -33,6 +33,11 @@ public class LoginManager {
 	public static Match GetMatch() {
 		return m;
 	}
+	public static void resetLoginManger(){
+		playerMe=null;
+		m=null;
+		
+	}
 	public static Player playerMe;
 	private static Match m;
 	public static boolean isHost;

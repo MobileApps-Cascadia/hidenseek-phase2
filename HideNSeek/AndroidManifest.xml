@@ -11,12 +11,12 @@
     <uses-permission android:name="com.cascadia.hidenseek.permissions.MAPS_RECEIVE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="com.android.alarm.permission.SET_ALARM"/>
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
     <!--
          The following two permissions are not required to use
-	     Google Maps Android API v2, but are recommended.
+	     Google Maps Android API v2, but are recommended.
     -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -37,7 +37,7 @@
         <uses-library android:name="com.google.android.maps" />
 
         <activity
-            android:name="com.cascadia.hidenseek.Home"
+            android:name=".Home"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -46,70 +46,75 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.cascadia.hidenseek.HostLogin"
+            android:name=".HostLogin"
             android:label="@string/title_activity_host_login"
-            android:parentActivityName="com.cascadia.hidenseek.Home" >
+            android:parentActivityName=".Home" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.cascadia.hidenseek.Home" />
         </activity>
-        
         <activity
-            android:name="com.cascadia.hidenseek.JoinLogin"
+            android:name=".JoinLogin"
             android:label="@string/title_activity_join_login"
-            android:parentActivityName="com.cascadia.hidenseek.Home" >
+            android:parentActivityName=".Home" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.cascadia.hidenseek.Home" />
         </activity>
         <activity
-            android:name="com.cascadia.hidenseek.HostConfig"
+            android:name=".HostConfig"
             android:label="@string/title_activity_host_config"
-            android:parentActivityName="com.cascadia.hidenseek.HostLogin" >
+            android:parentActivityName=".HostLogin" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.cascadia.hidenseek.HostLogin" />
         </activity>
         <activity
-            android:name="com.cascadia.hidenseek.Active"
-             android:theme="@android:style/Theme.Holo"
-            android:label="@string/title_activity_active" >
+            android:name=".Active"
+            android:label="@string/title_activity_active"
+            android:theme="@android:style/Theme.Holo" >
         </activity>
         <activity
-            android:name="com.cascadia.hidenseek.CurrentPlayers"
+            android:name=".CurrentPlayers"
             android:label="@string/current_Players" >
         </activity>
         <activity
-            android:name="com.cascadia.hidenseek.Settings"
+            android:name=".Settings"
             android:label="@string/title_settings" >
         </activity>
-        
         <activity
-            android:name="com.cascadia.hidenseek.SplashActivity"
-            android:screenOrientation="portrait"
-            android:label="@string/title_splash" >
+            android:name=".SplashActivity"
+            android:label="@string/title_splash"
+            android:screenOrientation="portrait" >
         </activity>
-         <meta-data 
-		android:name="com.google.android.gms.version" 
-		android:value="@integer/google_play_services_version" />
+        <activity
+            android:name=".TempToHome"
+            android:label="@string/title_activity_temp_to_home" >
+        </activity>
 
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="AIzaSyC5YvkPtxmbXyKbFibFj7kCqZGvHLj6dlU" />
-       
 
         <activity
-            android:name="com.cascadia.hidenseek.SelectMatch"
-           android:theme="@android:style/Theme.Holo"
+            android:name=".SelectMatch"
             android:label="@string/title_activity_select_match"
-            android:parentActivityName="com.cascadia.hidenseek.JoinLogin"
-            
-            >
+            android:parentActivityName=".JoinLogin"
+            android:theme="@android:style/Theme.Holo" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.cascadia.hidenseek.JoinLogin" />
         </activity>
-         <receiver android:name=".AlarmReciever"/>
+
+        <receiver android:name=".AlarmReciever" />
+
+        <activity
+            android:name=".ToHome"
+            android:label="@string/title_activity_to_home" >
+        </activity>
     </application>
 
 </manifest>

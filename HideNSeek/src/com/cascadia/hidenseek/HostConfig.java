@@ -1,5 +1,7 @@
 package com.cascadia.hidenseek;
 
+import java.util.GregorianCalendar;
+
 import com.cascadia.hidenseek.Match.MatchType;
 import com.cascadia.hidenseek.Match.Status;
 import com.cascadia.hidenseek.network.GetMatchRequest;
@@ -7,8 +9,11 @@ import com.cascadia.hidenseek.network.GetPlayerListRequest;
 import com.cascadia.hidenseek.network.PutStartRequest;
 
 import android.app.Activity;
+import android.app.AlarmManager;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -22,6 +27,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 
 public class HostConfig extends Activity {
@@ -31,6 +37,7 @@ public class HostConfig extends Activity {
 	boolean isActive;
 	SharedPreferences sh_Pref;
 	Editor toEdit;
+	String Timer;
 	
 	//Used for periodic callback.
     private Handler h2 = new Handler();
@@ -49,7 +56,10 @@ public class HostConfig extends Activity {
 			d.show();
 			finish();
 		}
-		
+		int temp=LoginManager.playerMe.GetId();
+		Toast.makeText(this, Integer.toString(temp), Toast.LENGTH_LONG).show();
+		LoginManager.playerMe.SetID(temp);
+		Toast.makeText(this, "Id Changed to" + Integer.toString(LoginManager.playerMe.GetId()), Toast.LENGTH_LONG).show();
 		initSettings();
 		
 		list=(ListView)findViewById(R.id.configPlayerList);
@@ -119,15 +129,22 @@ public class HostConfig extends Activity {
 					protected void onComplete(Match m) {
 						Intent intent;
 						if(LoginManager.GetMatch().GetType()==Match.MatchType.HideNSeek){
+						Timer = getSharedPreferences("HideNSeek_shared_pref", MODE_PRIVATE)
+									.getString("Seektime", null);
+						scheduleAlarm();
 						intent = new Intent(HostConfig.this, SplashActivity.class);
+						
 		    			startActivity(intent);
+		    			isActive=false;
 						}
 						else{
 							intent=new Intent(HostConfig.this, Active.class);
 							startActivity(intent);
+							isActive=false;
 						}
 							
 					}
+					
 				};
 				request.DoRequest(m);
             }
@@ -175,6 +192,8 @@ public class HostConfig extends Activity {
 			            		toEdit = sh_Pref.edit(); 
 			            		toEdit.putString("Seektime", seek);
 			            		toEdit.commit(); 
+			            		Timer=seek;
+			            		scheduleAlarm();
 				    			Intent intent = new Intent(HostConfig.this,Active.class);
 				    			startActivity(intent);
 							}
@@ -191,6 +210,7 @@ public class HostConfig extends Activity {
 	    callback.run(); //Begin periodic updating!
 
 	}
+	
 	
 	private void setPlayerList() {
 		if(LoginManager.GetMatch() == null) {
@@ -222,6 +242,36 @@ public class HostConfig extends Activity {
 			}
 		};
 		request.DoRequest(LoginManager.GetMatch());
+	}
+	
+	public void scheduleAlarm() {
+		// time at which alarm will be scheduled here alarm is scheduled at 1
+		// day from current time,
+		// we fetch the current time in milliseconds and added 1 day time
+		// i.e. 24*60*60*1000= 86,400,000 milliseconds in a day
+		Long time = new GregorianCalendar().getTimeInMillis()
+				+ Long.parseLong(Timer)*60000 ;
+
+		// create an Intent and set the class which will execute when Alarm
+		// triggers, here we have
+		// given AlarmReciever in the Intent, the onRecieve() method of this
+		// class will execute when
+		// alarm triggers and
+		// we will write the code to send SMS inside onRecieve() method pf
+		// Alarmreciever class
+		
+		Intent intentAlarm = new Intent(this, AlarmReciever.class);
+		
+		// create the object
+		AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+
+		// set the alarm for particular time
+		alarmManager.set(AlarmManager.RTC_WAKEUP, time, PendingIntent
+				.getBroadcast(this, 1, intentAlarm,
+						PendingIntent.FLAG_UPDATE_CURRENT));
+		Toast.makeText(this, "Alarm Scheduled", Toast.LENGTH_LONG).show();
+		
+
 	}
 
 	@Override
