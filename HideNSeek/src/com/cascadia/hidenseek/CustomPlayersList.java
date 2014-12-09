@@ -3,7 +3,7 @@ package com.cascadia.hidenseek;
 import java.util.List;
 import java.util.zip.Inflater;
 
-import com.cascadia.hidenseek.FoundAdapter.FoundViewHolder;
+
 import com.cascadia.hidenseek.Player.Status;
 import com.cascadia.hidenseek.network.PutStatusRequest;
 
