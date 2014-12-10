@@ -1,10 +1,8 @@
-package edu.cascadia.hidenseek;
-import com.cascadia.hidenseek.R;
+package com.cascadia.hidenseek;
+import com.cascadia.hidenseek.Player;
+import com.cascadia.hidenseek.Match.Status;
 import com.cascadia.hidenseek.network.GetMatchRequest;
 import com.cascadia.hidenseek.network.GetPlayerListRequest;
-
-import edu.cascadia.hidenseek.Player;
-import edu.cascadia.hidenseek.Match.Status;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;

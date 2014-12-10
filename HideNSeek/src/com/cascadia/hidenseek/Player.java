@@ -1,4 +1,4 @@
-package edu.cascadia.hidenseek;
+package com.cascadia.hidenseek;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

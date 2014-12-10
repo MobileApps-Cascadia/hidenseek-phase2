@@ -1,4 +1,4 @@
-package edu.cascadia.hidenseek;
+package com.cascadia.hidenseek;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

@@ -1,4 +1,4 @@
-package edu.cascadia.hidenseek;
+package com.cascadia.hidenseek;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -11,7 +11,6 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
-import com.cascadia.hidenseek.R;
 import com.cascadia.hidenseek.network.GetMatchRequest;
 import com.cascadia.hidenseek.network.PostPlayerRequest;
 

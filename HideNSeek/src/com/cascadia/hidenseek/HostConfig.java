@@ -1,14 +1,13 @@
-package edu.cascadia.hidenseek;
+package com.cascadia.hidenseek;
 
 import java.util.GregorianCalendar;
 
-import com.cascadia.hidenseek.R;
+import com.cascadia.hidenseek.Match.MatchType;
+import com.cascadia.hidenseek.Match.Status;
 import com.cascadia.hidenseek.network.GetMatchRequest;
 import com.cascadia.hidenseek.network.GetPlayerListRequest;
 import com.cascadia.hidenseek.network.PutStartRequest;
 
-import edu.cascadia.hidenseek.Match.MatchType;
-import edu.cascadia.hidenseek.Match.Status;
 import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.AlertDialog;

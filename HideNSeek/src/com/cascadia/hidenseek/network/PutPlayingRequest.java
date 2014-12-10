@@ -1,8 +1,7 @@
 package com.cascadia.hidenseek.network;
 
+import com.cascadia.hidenseek.Player;
 import com.cascadia.hidenseek.network.NetworkBase.RequestType;
-
-import edu.cascadia.hidenseek.Player;
 
 public abstract class PutPlayingRequest extends NetworkRequest {
 
