@@ -13,9 +13,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.cascadia.hidenseek.R;
+import com.cascadia.hidenseek.network.GetMatchListRequest;
 
 import edu.cascadia.hidenseek.Match.Status;
-import edu.cascadia.hidenseek.network.GetMatchListRequest;
 
 public class SelectMatch extends Activity {
 

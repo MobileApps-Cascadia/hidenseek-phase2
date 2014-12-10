@@ -12,7 +12,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.location.Location;
-import edu.cascadia.hidenseek.network.LocationParser;
+
+
+import com.cascadia.hidenseek.network.LocationParser;
 
 public class Player {
 

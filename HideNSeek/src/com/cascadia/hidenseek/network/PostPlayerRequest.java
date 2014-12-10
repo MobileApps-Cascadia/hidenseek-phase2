@@ -1,9 +1,10 @@
-package edu.cascadia.hidenseek.network;
+package com.cascadia.hidenseek.network;
 
 import org.json.JSONException;
 
+import com.cascadia.hidenseek.network.NetworkBase.RequestType;
+
 import edu.cascadia.hidenseek.Player;
-import edu.cascadia.hidenseek.network.NetworkBase.RequestType;
 
 public abstract class PostPlayerRequest extends NetworkRequest {
 

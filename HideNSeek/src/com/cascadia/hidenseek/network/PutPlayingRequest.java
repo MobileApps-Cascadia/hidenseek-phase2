@@ -1,14 +1,15 @@
-package edu.cascadia.hidenseek.network;
+package com.cascadia.hidenseek.network;
+
+import com.cascadia.hidenseek.network.NetworkBase.RequestType;
 
 import edu.cascadia.hidenseek.Player;
-import edu.cascadia.hidenseek.network.NetworkBase.RequestType;
 
-public abstract class DeletePlayingRequest extends NetworkRequest {
+public abstract class PutPlayingRequest extends NetworkRequest {
 
 	public void DoRequest(Player p) {
 		Request r = new Request();
 		r.url = baseUrl + "players/" + p.GetId() + "/playing/";
-		r.type = RequestType.DELETE;
+		r.type = RequestType.PUT_NoArgs;
 		doRequest(r);
 	}
 	

@@ -5,11 +5,10 @@ import java.util.zip.Inflater;
 
 
 
-
 import com.cascadia.hidenseek.R;
+import com.cascadia.hidenseek.network.PutStatusRequest;
 
 import edu.cascadia.hidenseek.Player.Status;
-import edu.cascadia.hidenseek.network.PutStatusRequest;
 import android.app.Activity;
 import android.app.Dialog;
 import android.view.LayoutInflater;

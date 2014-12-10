@@ -1,6 +1,6 @@
-package edu.cascadia.hidenseek.network;
+package com.cascadia.hidenseek.network;
 
-import edu.cascadia.hidenseek.network.NetworkBase.RequestType;
+import com.cascadia.hidenseek.network.NetworkBase.RequestType;
 
 public class Request {
 
