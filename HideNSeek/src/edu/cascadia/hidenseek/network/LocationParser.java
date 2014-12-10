@@ -1,4 +1,4 @@
-package com.cascadia.hidenseek.network;
+package edu.cascadia.hidenseek.network;
 
 
 import java.text.ParseException;

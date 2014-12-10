@@ -53,7 +53,7 @@ public class SplashActivity extends Activity {
 		public void startCountDown() {
 			isrunning = true;
 			count_down_text.setText("" + starttime / 1000);
-			Log.d("TAG", " starttime/1000:" + starttime / 1000);
+			
 			start();
 		}
 

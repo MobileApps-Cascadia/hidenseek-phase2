@@ -1,8 +1,7 @@
-package com.cascadia.hidenseek.network;
-
-import com.cascadia.hidenseek.network.NetworkBase.RequestType;
+package edu.cascadia.hidenseek.network;
 
 import edu.cascadia.hidenseek.Match;
+import edu.cascadia.hidenseek.network.NetworkBase.RequestType;
 
 public abstract class GetMatchRequest extends NetworkRequest {
 

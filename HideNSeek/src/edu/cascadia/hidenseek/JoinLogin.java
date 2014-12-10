@@ -12,8 +12,9 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import com.cascadia.hidenseek.R;
-import com.cascadia.hidenseek.network.GetMatchRequest;
-import com.cascadia.hidenseek.network.PostPlayerRequest;
+
+import edu.cascadia.hidenseek.network.GetMatchRequest;
+import edu.cascadia.hidenseek.network.PostPlayerRequest;
 
 public class JoinLogin extends Activity {
 
