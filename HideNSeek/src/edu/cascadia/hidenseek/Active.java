@@ -1,10 +1,8 @@
-package com.cascadia.hidenseek;
+package edu.cascadia.hidenseek;
 
 import java.util.GregorianCalendar;
 
-import com.cascadia.hidenseek.Player.Role;
-import com.cascadia.hidenseek.Player.Status;
-import com.cascadia.hidenseek.SplashActivity.MyCountDownTimer;
+import com.cascadia.hidenseek.R;
 import com.cascadia.hidenseek.network.DeletePlayingRequest;
 import com.cascadia.hidenseek.network.GetPlayerListRequest;
 import com.cascadia.hidenseek.network.PutGpsRequest;
@@ -19,6 +17,9 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import edu.cascadia.hidenseek.Player.Role;
+import edu.cascadia.hidenseek.Player.Status;
+import edu.cascadia.hidenseek.SplashActivity.MyCountDownTimer;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.annotation.TargetApi;

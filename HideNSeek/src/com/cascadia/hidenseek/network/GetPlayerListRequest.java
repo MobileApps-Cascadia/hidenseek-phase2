@@ -4,9 +4,10 @@ package com.cascadia.hidenseek.network;
 
 import org.json.JSONException;
 
-import com.cascadia.hidenseek.Match;
-import com.cascadia.hidenseek.Player;
 import com.cascadia.hidenseek.network.NetworkBase.RequestType;
+
+import edu.cascadia.hidenseek.Match;
+import edu.cascadia.hidenseek.Player;
 
 public abstract class GetPlayerListRequest extends NetworkRequest {
 

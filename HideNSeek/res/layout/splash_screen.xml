@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     
-    tools:context="com.cascadia.hidenseek.Home"
+    tools:context="edu.cascadia.hidenseek.Home"
     tools:ignore="MergeRootFrame" >
 
     <ImageView

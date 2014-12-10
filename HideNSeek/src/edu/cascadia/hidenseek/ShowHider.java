@@ -1,9 +1,10 @@
-package com.cascadia.hidenseek;
+package edu.cascadia.hidenseek;
 
 import android.os.CountDownTimer;
 
-import com.cascadia.hidenseek.Player.Role;
 import com.cascadia.hidenseek.network.PutRoleRequest;
+
+import edu.cascadia.hidenseek.Player.Role;
 
 public class ShowHider extends CountDownTimer {
 	private boolean isrunning = false;

@@ -1,7 +1,8 @@
 package com.cascadia.hidenseek.network;
 
-import com.cascadia.hidenseek.Match;
 import com.cascadia.hidenseek.network.NetworkBase.RequestType;
+
+import edu.cascadia.hidenseek.Match;
 
 public class PutStopRequest extends NetworkRequest{
 	public void DoRequest(Match toStop) {

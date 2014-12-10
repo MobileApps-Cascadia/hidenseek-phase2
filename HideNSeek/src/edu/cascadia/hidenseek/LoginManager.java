@@ -1,7 +1,7 @@
-package com.cascadia.hidenseek;
+package edu.cascadia.hidenseek;
 
-import com.cascadia.hidenseek.Match.MatchType;
-import com.cascadia.hidenseek.Player.Role;
+import edu.cascadia.hidenseek.Match.MatchType;
+import edu.cascadia.hidenseek.Player.Role;
 
 
 

@@ -37,7 +37,7 @@
         <uses-library android:name="com.google.android.maps" />
 
         <activity
-            android:name=".Home"
+            android:name="edu.cascadia.hidenseek.Home"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -46,49 +46,49 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".HostLogin"
+            android:name="edu.cascadia.hidenseek.HostLogin"
             android:label="@string/title_activity_host_login"
-            android:parentActivityName=".Home" >
+            android:parentActivityName="edu.cascadia.hidenseek.Home" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.cascadia.hidenseek.Home" />
         </activity>
         <activity
-            android:name=".JoinLogin"
+            android:name="edu.cascadia.hidenseek.JoinLogin"
             android:label="@string/title_activity_join_login"
-            android:parentActivityName=".Home" >
+            android:parentActivityName="edu.cascadia.hidenseek.Home" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.cascadia.hidenseek.Home" />
         </activity>
         <activity
-            android:name=".HostConfig"
+            android:name="edu.cascadia.hidenseek.HostConfig"
             android:label="@string/title_activity_host_config"
-            android:parentActivityName=".HostLogin" >
+            android:parentActivityName="edu.cascadia.hidenseek.HostLogin" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.cascadia.hidenseek.HostLogin" />
         </activity>
         <activity
-            android:name=".Active"
+            android:name="edu.cascadia.hidenseek.Active"
             android:label="@string/title_activity_active"
             android:theme="@android:style/Theme.Holo" >
         </activity>
         <activity
-            android:name=".CurrentPlayers"
+            android:name="edu.cascadia.hidenseek.CurrentPlayers"
             android:label="@string/current_Players" >
         </activity>
         <activity
-            android:name=".Settings"
+            android:name="edu.cascadia.hidenseek.Settings"
             android:label="@string/title_settings" >
         </activity>
         <activity
-            android:name=".SplashActivity"
+            android:name="edu.cascadia.hidenseek.SplashActivity"
             android:label="@string/title_splash"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".TempToHome"
+            android:name="edu.cascadia.hidenseek.TempToHome"
             android:label="@string/title_activity_temp_to_home" >
         </activity>
 
@@ -100,19 +100,19 @@
             android:value="AIzaSyC5YvkPtxmbXyKbFibFj7kCqZGvHLj6dlU" />
 
         <activity
-            android:name=".SelectMatch"
+            android:name="edu.cascadia.hidenseek.SelectMatch"
             android:label="@string/title_activity_select_match"
-            android:parentActivityName=".JoinLogin"
+            android:parentActivityName="edu.cascadia.hidenseek.JoinLogin"
             android:theme="@android:style/Theme.Holo" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.cascadia.hidenseek.JoinLogin" />
         </activity>
 
-        <receiver android:name=".AlarmReciever" />
+        <receiver android:name="edu.cascadia.hidenseek.AlarmReciever" />
 
         <activity
-            android:name=".ToHome"
+            android:name="edu.cascadia.hidenseek.ToHome"
             android:label="@string/title_activity_to_home" >
         </activity>
     </application>

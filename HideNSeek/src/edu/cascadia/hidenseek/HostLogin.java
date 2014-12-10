@@ -1,10 +1,11 @@
-package com.cascadia.hidenseek;
+package edu.cascadia.hidenseek;
 
-import com.cascadia.hidenseek.Player.Role;
+import com.cascadia.hidenseek.R;
 import com.cascadia.hidenseek.network.PostMatchRequest;
 import com.cascadia.hidenseek.network.PostPlayerRequest;
 import com.cascadia.hidenseek.network.PutRoleRequest;
 
+import edu.cascadia.hidenseek.Player.Role;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;

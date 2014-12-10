@@ -1,4 +1,4 @@
-package com.cascadia.hidenseek;
+package edu.cascadia.hidenseek;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,8 +12,10 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.cascadia.hidenseek.Match.Status;
+import com.cascadia.hidenseek.R;
 import com.cascadia.hidenseek.network.GetMatchListRequest;
+
+import edu.cascadia.hidenseek.Match.Status;
 
 public class SelectMatch extends Activity {
 

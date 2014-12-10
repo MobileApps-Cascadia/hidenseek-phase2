@@ -1,4 +1,6 @@
-package com.cascadia.hidenseek;
+package edu.cascadia.hidenseek;
+
+import com.cascadia.hidenseek.R;
 
 import android.app.Activity;
 import android.os.Bundle;
