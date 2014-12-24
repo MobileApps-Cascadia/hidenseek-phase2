@@ -25,10 +25,10 @@ public class LoginManager {
 		m = p.GetAssociatedMatch();
 		isHost = false;
 	}
-	
+	/*  Should not allow to change match, it is related to player
 	public static void SetMatch(Match match) {
 		m = match;
-	}
+	} */
 	
 	public static Match GetMatch() {
 		return m;
