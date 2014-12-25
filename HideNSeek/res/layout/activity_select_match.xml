@@ -7,6 +7,7 @@
     tools:ignore="MergeRootFrame" >
 
     <ImageView
+        android:contentDescription="@string/descr"
         android:id="@+id/imageView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
