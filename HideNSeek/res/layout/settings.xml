@@ -7,6 +7,7 @@
     tools:ignore="MergeRootFrame" >
     
     <ImageView
+        android:contentDescription="@string/descr"
         android:id="@+id/imageView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -20,7 +21,7 @@
     
     <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical" >
 
             <RelativeLayout
@@ -34,14 +35,17 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
                     android:layout_marginLeft="17dp"
+                    android:layout_marginStart="17dp"
                     android:layout_marginTop="14dp"
                     android:text="@string/pref_player_name"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="@color/headings" />
                 
                 <ImageView
+                    android:contentDescription="@string/descr"
                     android:id="@+id/prefPlayerNameHelp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -56,6 +60,8 @@
                     android:layout_height="wrap_content"
                     android:layout_alignLeft="@+id/prefPlayerName"
                     android:layout_alignRight="@+id/prefPlayerNameHelp"
+                    android:layout_alignStart="@+id/prefPlayerName"
+                    android:layout_alignEnd="@+id/prefPlayerNameHelp"
                     android:layout_below="@+id/prefPlayerName"
                     android:layout_marginTop="5dp"
                     android:ems="10" /> 
@@ -71,19 +77,24 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
                     android:layout_marginLeft="17dp"
+                    android:layout_marginStart="17dp"
                     android:text="@string/pref_count_time"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="@color/headings" />
                 
                 <ImageView
+                    android:contentDescription="@string/descr"
                     android:id="@+id/prefCountTimeHelp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
                     android:layout_alignTop="@+id/prefCountTime"
                     android:layout_marginRight="20dp"
+                    android:layout_marginEnd="20dp"
                     android:src="@drawable/ic_help" />
 
                 <EditText
@@ -92,9 +103,13 @@
                     android:layout_height="wrap_content"
                     android:layout_alignLeft="@+id/prefCountTime"
                     android:layout_alignRight="@+id/prefCountTimeHelp"
+                    android:layout_alignStart="@+id/prefCountTime"
+                    android:layout_alignEnd="@+id/prefCountTimeHelp"
                     android:layout_below="@+id/prefCountTime"
                     android:layout_marginTop="5dp"
-                    android:ems="10" /> 
+                    android:ems="10"
+                    android:hint="@string/count_time_hint"
+                    android:inputType="time" /> 
             </RelativeLayout>
             
             <RelativeLayout
@@ -107,19 +122,24 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
                     android:layout_marginLeft="17dp"
+                    android:layout_marginStart="17dp"
                     android:text="@string/pref_seek_time"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="@color/headings" />
                 
                 <ImageView
+                    android:contentDescription="@string/descr"
                     android:id="@+id/prefSeekTimeHelp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
                     android:layout_alignTop="@+id/prefSeekTime"
                     android:layout_marginRight="20dp"
+                    android:layout_marginEnd="20dp"
                     android:src="@drawable/ic_help" />
 
                 <EditText
@@ -128,9 +148,13 @@
                     android:layout_height="wrap_content"
                     android:layout_alignLeft="@+id/prefSeekTime"
                     android:layout_alignRight="@+id/prefSeekTimeHelp"
+                    android:layout_alignStart="@+id/prefSeekTime"
+                    android:layout_alignEnd="@+id/prefSeekTimeHelp"
                     android:layout_below="@+id/prefSeekTime"
                     android:layout_marginTop="5dp"
-                    android:ems="10" /> 
+                    android:ems="10"
+                    android:hint="@string/seek_time_hint"
+                    android:inputType="time"  /> 
             </RelativeLayout>
             
             <RelativeLayout
@@ -142,17 +166,21 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
-                    android:layout_marginLeft="17dp"                 
-                    android:text="Submit" /> 
+                    android:layout_marginLeft="17dp"   
+                    android:layout_marginStart="17dp"              
+                    android:text="@string/Submit" /> 
                     
                 <Button 
                     android:id="@+id/exit" 
                     android:layout_width="wrap_content" 
                     android:layout_height="wrap_content" 
-                    android:layout_marginLeft="75px" 
+                    android:layout_marginLeft="75dp" 
                     android:layout_toRightOf="@+id/submit" 
-                    android:text="Exit" />
+                    android:layout_marginStart="75dp" 
+                    android:layout_toEndOf="@+id/submit" 
+                    android:text="@string/Exit" />
                
             </RelativeLayout>
             

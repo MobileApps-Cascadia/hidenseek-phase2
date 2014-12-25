@@ -37,7 +37,9 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
                     android:layout_marginStart="17dp"
+                    android:layout_marginLeft="17dp"
                     android:layout_marginTop="14dp"
                     android:text="@string/login_match_name"
                     android:textAppearance="?android:attr/textAppearanceMedium"
@@ -49,8 +51,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
                     android:layout_alignTop="@+id/selectMatchTitle"
                     android:layout_marginEnd="20dp"
+                    android:layout_marginRight="20dp"
                     android:src="@drawable/ic_help" />
 
                 <Button
@@ -59,6 +63,8 @@
                     android:layout_height="wrap_content"
                     android:layout_alignStart="@+id/selectMatchTitle"
                     android:layout_alignEnd="@+id/selectMatchHelp"
+                    android:layout_alignLeft="@+id/selectMatchTitle"
+                    android:layout_alignRight="@+id/selectMatchHelp"
                     android:layout_below="@+id/selectMatchTitle"
                     android:text="@string/select_match" />
             </RelativeLayout>
@@ -73,8 +79,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
                     android:layout_alignParentTop="true"
                     android:layout_marginStart="17dp"
+                    android:layout_marginLeft="17dp"
                     android:layout_marginTop="14dp"
                     android:text="@string/login_password_title"
                     android:textAppearance="?android:attr/textAppearanceMedium"
@@ -86,8 +94,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
                     android:layout_alignTop="@+id/JoinPasswordTitle"
                     android:layout_marginEnd="20dp"
+                    android:layout_marginRight="20dp"
                     android:src="@drawable/ic_help" />
 
                 <EditText
@@ -96,6 +106,8 @@
                     android:layout_height="wrap_content"
                     android:layout_alignStart="@+id/JoinPasswordTitle"
                     android:layout_alignEnd="@+id/JoinPasswordHelp"
+                    android:layout_alignLeft="@+id/JoinPasswordTitle"
+                    android:layout_alignRight="@+id/JoinPasswordHelp"
                     android:layout_below="@+id/JoinPasswordTitle"
                     android:layout_marginTop="5dp"
                     android:ems="10"
@@ -115,8 +127,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
                     android:layout_alignParentTop="true"
                     android:layout_marginStart="17dp"
+                    android:layout_marginLeft="17dp"
                     android:layout_marginTop="14dp"
                     android:text="@string/player_name"
                     android:textAppearance="?android:attr/textAppearanceMedium"
@@ -128,8 +142,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
                     android:layout_alignTop="@+id/PlayerNameTitle"
                     android:layout_marginEnd="20dp"
+                    android:layout_marginRight="20dp"
                     android:src="@drawable/ic_help" />
 
                 <EditText
@@ -138,6 +154,8 @@
                     android:layout_height="wrap_content"
                     android:layout_alignStart="@+id/PlayerNameTitle"
                     android:layout_alignEnd="@+id/PlayerNameHelp"
+                    android:layout_alignLeft="@+id/PlayerNameTitle"
+                    android:layout_alignRight="@+id/PlayerNameHelp"
                     android:layout_below="@+id/PlayerNameHelp"
                     android:layout_marginTop="5dp"
                     android:ems="10" />

@@ -2,7 +2,6 @@
 <resources>
 
     <string name="app_name">HideNSeek</string>
-    <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_host_login">Create Match</string>
     <string name="login_match_name">Match Name</string>
@@ -37,6 +36,8 @@
     <string name="found_btn">Found</string>
     <string name="back">Back</string>
     <string name="ok">OK</string>
+    <string name="Submit">Submit</string>
+    <string name="Exit">Exit</string>
     <string name="title_AlarmManagerBroadcastReceiver">Alarm Manager</string>
     <string name="descr">image</string>
     <string name="select_match">Select Match</string>
