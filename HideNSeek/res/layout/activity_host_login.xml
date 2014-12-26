@@ -68,6 +68,7 @@
                     android:layout_alignRight="@+id/loginMatchNameHelp"
                     android:layout_below="@+id/loginMatchNameTitle"
                     android:layout_marginTop="5dp"
+                    android:hint="@string/enter_player_name"
                     android:ems="10" />
             </RelativeLayout>
 
@@ -201,6 +202,7 @@
                     android:layout_alignRight="@+id/ImageView01"
                     android:layout_below="@+id/TextView01"
                     android:layout_marginTop="5dp"
+                    android:hint="@string/enter_player_name"
                     android:ems="10" />
             </RelativeLayout>
 

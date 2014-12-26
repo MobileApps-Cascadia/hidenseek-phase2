@@ -26,6 +26,8 @@
     <string name="title_activity_active">Active Game</string>
     <string name="player_name">Player Name</string>
     <string name="pref_player_name">Player Name</string>
+    <string name="enter_player_name">Enter a Player name</string>
+    <string name="pref_instruction">Enter new Count Time and \nSeek Time and then Submit!</string>
     <string name="pref_count_time">Default Count Time</string>
     <string name="pref_seek_time">Default Seek Time</string>
     <string name="title_settings">Settings</string>

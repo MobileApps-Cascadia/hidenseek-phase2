@@ -33,10 +33,18 @@ public class Settings extends Activity implements OnClickListener {
 		
 		counttime = getSharedPreferences("HideNSeek_shared_pref", MODE_PRIVATE).getString("Counttime", "");
 		EditText cTime = (EditText)findViewById(R.id.prefCountTimeInput);
+		if (counttime == null || counttime == "")
+		{
+			counttime = "30";
+		}
 		cTime.setText(counttime);
 		
 		seektime = getSharedPreferences("HideNSeek_shared_pref", MODE_PRIVATE).getString("Seektime", "");
 		EditText sTime = (EditText)findViewById(R.id.prefSeekTimeInput);
+		if (seektime == null || seektime == "")
+		{
+			seektime = "3";
+		}
 		sTime.setText(seektime);
 	}
 	
