@@ -1,9 +1,6 @@
 package com.cascadia.hidenseek;
 
 import com.cascadia.hidenseek.Match.MatchType;
-import com.cascadia.hidenseek.Player.Role;
-
-
 
 public class LoginManager {
 	
