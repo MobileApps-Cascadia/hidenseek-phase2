@@ -1,5 +1,6 @@
 package com.cascadia.hidenseek;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
@@ -68,6 +69,7 @@ public class Settings extends Activity implements OnClickListener {
 	
 	
 	
+	@SuppressLint("ShowToast")
 	@Override 
 	public void onClick(View currentButton) { 
 		switch (currentButton.getId()) { 
