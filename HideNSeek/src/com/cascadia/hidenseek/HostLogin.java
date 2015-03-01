@@ -44,14 +44,14 @@ public class HostLogin extends Activity {
 				String playerPW = mPassword.getText().toString();
 				if (playerPW.isEmpty() || playerPW.trim().length() <2)
 				{					
-					HelpDialog helpDialog = new HelpDialog("Match password must at least 2 characters and not blanks!", "Match Password" );
+					HelpDialog helpDialog = new HelpDialog("Match password must have at least 2 characters!", "Match Password" );
 					helpDialog.show(getFragmentManager(), "Help");
 					return;
 				}
 				String hostName = pName.getText().toString();
 				if (hostName.isEmpty() || hostName.trim().length() <2)
 				{					
-					HelpDialog helpDialog = new HelpDialog("Host name must at least 2 characters and not blanks!", "Host Name" );
+					HelpDialog helpDialog = new HelpDialog("Host name must have at least 2 characters!", "Host Name" );
 					helpDialog.show(getFragmentManager(), "Help");
 					return;
 				}
@@ -111,7 +111,7 @@ public class HostLogin extends Activity {
 	
 			@Override
 			public void onClick(View v) {
-				HelpDialog helpDialog = new HelpDialog("This is a passworrd you will set and give to your firends so they can join your game.  Anyone that does not have this passworrd will not be allowed to join.", "Password" );
+				HelpDialog helpDialog = new HelpDialog("This is a passworrd you will set and give to your friends so they can join your game.  No password, no game!", "Password" );
 				helpDialog.show(getFragmentManager(), "Help");
 			}
 		});
@@ -120,7 +120,7 @@ public class HostLogin extends Activity {
 	
 			@Override
 			public void onClick(View v) {
-				HelpDialog helpDialog = new HelpDialog("Create a name for your match.  This is what your user will look for when joining your game", "Match Name");
+				HelpDialog helpDialog = new HelpDialog("Create a name for your match.  This is what player will look for when joining your game", "Match Name");
 				helpDialog.show(getFragmentManager(), "Help");
 			}
 		});
