@@ -19,11 +19,13 @@
             android:clickable="true" />
 
         <ImageButton
+            android:contentDescription="@string/descr"
             android:id="@+id/btnLeaveGame"
             android:layout_width="103dp"
             android:layout_height="100dp"
             android:layout_alignParentBottom="true"
             android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
             android:background="@android:color/transparent"
             android:scaleType="fitXY"
             android:src="@drawable/btn_leave_set" />

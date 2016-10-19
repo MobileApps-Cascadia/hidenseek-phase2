@@ -2,7 +2,6 @@
 <resources>
 
     <string name="app_name">HideNSeek</string>
-    <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_host_login">Create Match</string>
     <string name="login_match_name">Match Name</string>
@@ -27,6 +26,8 @@
     <string name="title_activity_active">Active Game</string>
     <string name="player_name">Player Name</string>
     <string name="pref_player_name">Player Name</string>
+    <string name="enter_player_name">Enter a Player name</string>
+    <string name="pref_instruction">Enter new Count Time and \nSeek Time and then Submit!</string>
     <string name="pref_count_time">Default Count Time</string>
     <string name="pref_seek_time">Default Seek Time</string>
     <string name="title_settings">Settings</string>
@@ -37,6 +38,8 @@
     <string name="found_btn">Found</string>
     <string name="back">Back</string>
     <string name="ok">OK</string>
+    <string name="Submit">Submit</string>
+    <string name="Exit">Exit</string>
     <string name="title_AlarmManagerBroadcastReceiver">Alarm Manager</string>
     <string name="descr">image</string>
     <string name="select_match">Select Match</string>

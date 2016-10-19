@@ -115,6 +115,12 @@ public class Player {
 		return jObject.toString();
 	}
 	
+	public String playingToJSON() throws JSONException {
+		JSONObject jObject = new JSONObject();
+		jObject.put("playing", Boolean.toString(isPlaying));
+		return jObject.toString();
+	}
+	
 	public boolean ProcessPostResponse(String jsonStr) {
 		try {
 			playerId = new JSONObject(jsonStr).getInt("playerID");
@@ -134,7 +140,7 @@ public class Player {
 		toReturn.playerId = jObject.getInt("id");
 		toReturn.role = Role.Parse(jObject.getString("role"));
 		toReturn.status = Status.Parse(jObject.getString("hiderStatus"));
-
+		toReturn.isPlaying = jObject.getBoolean("playing");
 		try {
 			toReturn.location = LocationParser.Parse(jObject.getString("GPSLocation"));
 			toReturn.lastUpdatedLocation = dateTimeFormat.parse(jObject.getString("lastUpdated"));
@@ -180,8 +186,17 @@ public class Player {
 	public int GetId() {
 		return playerId;
 	}
+	
 	public void SetID(int ID){
 		playerId=ID;
+	}
+	
+	public Boolean GetPlaying() {
+		return isPlaying;
+	}
+	
+	public void SetPlaying(Boolean playing) {
+		isPlaying = playing;
 	}
 	public Match GetAssociatedMatch() {
 		return associatedMatch;
@@ -193,6 +208,7 @@ public class Player {
 	private String name;
 	private Role role;
 	private Status status;
+	private boolean isPlaying = true;
 	private int playerId = -1;
 	
 	private static SimpleDateFormat dateTimeFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss", Locale.US);

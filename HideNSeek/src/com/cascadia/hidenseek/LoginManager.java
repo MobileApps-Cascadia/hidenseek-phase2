@@ -1,9 +1,6 @@
 package com.cascadia.hidenseek;
 
 import com.cascadia.hidenseek.Match.MatchType;
-import com.cascadia.hidenseek.Player.Role;
-
-
 
 public class LoginManager {
 	
@@ -25,10 +22,10 @@ public class LoginManager {
 		m = p.GetAssociatedMatch();
 		isHost = false;
 	}
-	
+	/*  Should not allow to change match, it is related to player
 	public static void SetMatch(Match match) {
 		m = match;
-	}
+	} */
 	
 	public static Match GetMatch() {
 		return m;

@@ -36,8 +36,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
                     android:layout_alignParentTop="true"
                     android:layout_marginStart="17dp"
+                    android:layout_marginLeft="17dp"
                     android:layout_marginTop="14dp"
                     android:text="@string/login_match_name"
                     android:textAppearance="?android:attr/textAppearanceMedium"
@@ -49,8 +51,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
                     android:layout_alignTop="@+id/loginMatchNameTitle"
                     android:layout_marginEnd="20dp"
+                    android:layout_marginRight="20dp"
                     android:clickable="true"
                     android:src="@drawable/ic_help" />
 
@@ -60,8 +64,11 @@
                     android:layout_height="wrap_content"
                     android:layout_alignStart="@+id/loginMatchNameTitle"
                     android:layout_alignEnd="@+id/loginMatchNameHelp"
+                    android:layout_alignLeft="@+id/loginMatchNameTitle"
+                    android:layout_alignRight="@+id/loginMatchNameHelp"
                     android:layout_below="@+id/loginMatchNameTitle"
                     android:layout_marginTop="5dp"
+                    android:hint="@string/enter_player_name"
                     android:ems="10" />
             </RelativeLayout>
 
@@ -75,8 +82,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
                     android:layout_alignParentTop="true"
                     android:layout_marginStart="17dp"
+                    android:layout_marginLeft="17dp"
                     android:layout_marginTop="14dp"
                     android:text="@string/login_match_type_title"
                     android:textAppearance="?android:attr/textAppearanceMedium"
@@ -88,8 +97,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
                     android:layout_alignTop="@+id/loginMatchTypeText"
                     android:layout_marginEnd="20dp"
+                    android:layout_marginRight="20dp"
                     android:src="@drawable/ic_help" />
 
                 <Spinner
@@ -98,6 +109,8 @@
                     android:layout_height="wrap_content"
                     android:layout_alignStart="@+id/loginMatchTypeText"
                     android:layout_alignEnd="@+id/loginMatchTypeHelp"
+                    android:layout_alignLeft="@+id/loginMatchTypeText"
+                    android:layout_alignRight="@+id/loginMatchTypeHelp"
                     android:layout_below="@+id/loginMatchTypeText"
                     android:layout_marginTop="5dp" />
             </RelativeLayout>
@@ -112,8 +125,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
                     android:layout_alignParentTop="true"
                     android:layout_marginStart="17dp"
+                    android:layout_marginLeft="17dp"
                     android:layout_marginTop="14dp"
                     android:clickable="true"
                     android:text="@string/login_password_title"
@@ -126,8 +141,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
                     android:layout_alignTop="@+id/loginPasswordText"
                     android:layout_marginEnd="20dp"
+                    android:layout_marginRight="20dp"
                     android:src="@drawable/ic_help" />
 
                 <EditText
@@ -136,6 +153,8 @@
                     android:layout_height="wrap_content"
                     android:layout_alignStart="@+id/loginPasswordText"
                     android:layout_alignEnd="@+id/loginPasswordHelp"
+                    android:layout_alignLeft="@+id/loginPasswordText"
+                    android:layout_alignRight="@+id/loginPasswordHelp"
                     android:layout_below="@+id/loginPasswordText"
                     android:layout_marginTop="5dp"
                     android:ems="10"                    
@@ -152,8 +171,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
                     android:layout_alignParentTop="true"
                     android:layout_marginStart="17dp"
+                    android:layout_marginLeft="17dp"
                     android:layout_marginTop="14dp"
                     android:text="@string/player_name"
                     android:textAppearance="?android:attr/textAppearanceMedium"
@@ -165,8 +186,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
                     android:layout_alignTop="@+id/TextView01"
                     android:layout_marginEnd="20dp"
+                    android:layout_marginRight="20dp"
                     android:src="@drawable/ic_help" />
 
                 <EditText
@@ -175,8 +198,11 @@
                     android:layout_height="wrap_content"
                     android:layout_alignStart="@+id/TextView01"
                     android:layout_alignEnd="@+id/ImageView01"
+                    android:layout_alignLeft="@+id/TextView01"
+                    android:layout_alignRight="@+id/ImageView01"
                     android:layout_below="@+id/TextView01"
                     android:layout_marginTop="5dp"
+                    android:hint="@string/enter_player_name"
                     android:ems="10" />
             </RelativeLayout>
 
